@@ -8,6 +8,6 @@ package com.yangxi.cloud.framework.exception;
  **/
 public interface BaseBizCodeEnum {
 
-    Integer getCode();
+    int getCode();
     String getMsg();
 }

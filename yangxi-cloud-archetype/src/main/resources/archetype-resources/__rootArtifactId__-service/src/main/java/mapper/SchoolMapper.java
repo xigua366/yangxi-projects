@@ -1,0 +1,30 @@
+package ${package}.mapper;
+
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import ${package}.domain.dto.PageSchoolDTO;
+import ${package}.domain.entity.SchoolDO;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author xi.yang
+ * @since 2021-02-27
+ */
+@Mapper
+public interface SchoolMapper extends BaseMapper<SchoolDO> {
+
+    /**
+     * 根据学校名称模糊查询
+     * @param pageParam 分页参数
+     * @param schoolName 查询条件
+     * @return
+     */
+    IPage<PageSchoolDTO> pageSchool2(Page<?> pageParam, @Param("name") String schoolName);
+}

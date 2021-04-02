@@ -38,6 +38,12 @@
 		<dependencies>
 
 			<dependency>
+				<groupId>org.hibernate.validator</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>6.1.5.Final</version>
+			</dependency>
+
+			<dependency>
 				<groupId>com.baomidou</groupId>
 				<artifactId>mybatis-plus-boot-starter</artifactId>
 				<version>3.4.1</version>
@@ -124,12 +130,6 @@
 				<version>2.9.2</version>
 			</dependency>
 
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-validator</artifactId>
-				<version>6.0.17.Final</version>
-			</dependency>
-
 			<!-- yangxi-cloud framework依赖 -->
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
@@ -147,6 +147,54 @@
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-web</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-starter-dubbo</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-starter-nacos</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-starter-openfeign</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-starter-rocketmq</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-starter-seata</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-starter-sentinel</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-starter-skywalking</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-starter-zipkin</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
 

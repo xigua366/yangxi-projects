@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>${groupId}</groupId>
+		<artifactId>${rootArtifactId}</artifactId>
+		<version>${version}</version>
+		<relativePath>../../${rootArtifactId}</relativePath>
+	</parent>
+
+	<artifactId>${artifactId}</artifactId>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-common</artifactId>
+		</dependency>
+
+		<!-- 使用sentinel做限流降级与熔断降级 -->
+		<dependency>
+			<groupId>com.yangxi.cloud</groupId>
+			<artifactId>yangxi-cloud-starter-sentinel</artifactId>
+		</dependency>
+
+		<!-- 代码自动生成依赖 begin -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-generator</artifactId>
+			<version>3.4.1</version>
+			<scope>test</scope>
+			<optional>true</optional>
+		</dependency>
+
+		<!-- velocity -->
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity-engine-core</artifactId>
+			<version>2.0</version>
+			<scope>test</scope>
+			<optional>true</optional>
+		</dependency>
+		<!-- 代码自动生成依赖 end-->
+	</dependencies>
+	
+</project>

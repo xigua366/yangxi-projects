@@ -28,6 +28,14 @@
 
 	<modules>
 		<module>yangxi-cloud-starter-web</module>
+		<module>yangxi-cloud-starter-dubbo</module>
+		<module>yangxi-cloud-starter-nacos</module>
+		<module>yangxi-cloud-starter-openfeign</module>
+		<module>yangxi-cloud-starter-seata</module>
+		<module>yangxi-cloud-starter-sentinel</module>
+		<module>yangxi-cloud-starter-zipkin</module>
+		<module>yangxi-cloud-starter-skywalking</module>
+		<module>yangxi-cloud-starter-rocketmq</module>
 	</modules>
 
 	<dependencies>
@@ -50,6 +58,50 @@
 				<version>2.3.2.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+
+			<!-- spring cloud的依赖 -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Hoxton.SR9</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>2.2.5.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba.csp</groupId>
+				<artifactId>sentinel-datasource-nacos</artifactId>
+				<version>1.8.0</version>
+			</dependency>
+
+			<!-- rocketmq -->
+			<dependency>
+				<groupId>org.apache.rocketmq</groupId>
+				<artifactId>rocketmq-spring-boot-starter</artifactId>
+				<version>2.1.1</version>
+			</dependency>
+
+			<!-- skywalking -->
+			<dependency>
+				<groupId>org.apache.skywalking</groupId>
+				<artifactId>apm-toolkit-logback-1.x</artifactId>
+				<version>8.3.0</version>
+			</dependency>
+
+			<!-- yangxi-cloud-framework -->
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-framework-web</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

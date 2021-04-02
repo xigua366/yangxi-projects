@@ -22,7 +22,6 @@
         <dependency>
             <groupId>com.yangxi.cloud</groupId>
             <artifactId>yangxi-cloud-framework-web</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
     </dependencies>

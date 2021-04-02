@@ -8,7 +8,7 @@
 		<groupId>com.yangxi.cloud</groupId>
 		<artifactId>yangxi-cloud-parent</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../../yangxi-cloud/yangxi-cloud-parent</relativePath>
+		<relativePath/>
 	</parent>
 
 	<groupId>com.yangxi.cloud.sample</groupId>
@@ -17,6 +17,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>yangxi-cloud-sample-api</module>
 		<module>yangxi-cloud-sample-common</module>
 		<module>yangxi-cloud-sample-service</module>
 	</modules>
@@ -28,6 +29,22 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.yangxi.cloud.sample</groupId>
+				<artifactId>yangxi-cloud-sample-api</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud.sample</groupId>
+				<artifactId>yangxi-cloud-sample-common</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<repositories>
 		<!--阿里云主仓库，代理了maven central和jcenter仓库 -->

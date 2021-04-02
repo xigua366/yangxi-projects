@@ -39,6 +39,22 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.hibernate.validator</groupId>
+					<artifactId>hibernate-validator</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
@@ -120,11 +136,6 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-
 		<!-- yangxi-cloud framework依赖 -->
 		<dependency>
 			<groupId>com.yangxi.cloud</groupId>
@@ -140,6 +151,17 @@
 		<dependency>
 			<groupId>com.yangxi.cloud</groupId>
 			<artifactId>yangxi-cloud-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yangxi.cloud</groupId>
+			<artifactId>yangxi-cloud-starter-nacos</artifactId>
+		</dependency>
+
+		<!-- 默认选用openfeign进行rpc通信 -->
+		<dependency>
+			<groupId>com.yangxi.cloud</groupId>
+			<artifactId>yangxi-cloud-starter-openfeign</artifactId>
 		</dependency>
 
 	</dependencies>

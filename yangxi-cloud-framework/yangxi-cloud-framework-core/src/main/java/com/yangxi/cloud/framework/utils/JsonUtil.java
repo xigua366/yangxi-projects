@@ -1,5 +1,6 @@
-package com.yangxi.cloud.framework.web.utils;
+package com.yangxi.cloud.framework.utils;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yangxi.cloud.framework.core.ObjectMapperImpl;
@@ -17,7 +18,7 @@ import java.util.List;
 @Slf4j
 public class JsonUtil {
 
-	private static ObjectMapper mapper = new ObjectMapperImpl();
+	private static ObjectMapper objectMapper = new ObjectMapperImpl();
 
 	/**
 	 * 单个对象转json字符串
@@ -31,7 +32,7 @@ public class JsonUtil {
 
 		String s = null;
 		try {
-			s = mapper.writeValueAsString(o);
+			s = objectMapper.writeValueAsString(o);
 		} catch (Exception e) {
 			log.error("object to json error", e);
 		}
@@ -90,7 +91,7 @@ public class JsonUtil {
 		}
 
 		try {
-			return mapper.readValue(json, clazz);
+			return objectMapper.readValue(json, clazz);
 		} catch (Exception e) {
 			log.error("json to object error", e);
 		}
@@ -109,9 +110,55 @@ public class JsonUtil {
 			return null;
 		}
 		try {
-			return mapper.readValue(json, typeReference);
+			return objectMapper.readValue(json, typeReference);
 		} catch (Exception e) {
 			log.error("json to object error", e);
+		}
+		return null;
+	}
+
+	/**
+	 *  用于支持获取远程调用返回数据的转换
+	 *  注意事项：
+	 *      支持多单词下划线专驼峰（序列化和反序列化）
+	 *
+	 *
+	 * @param clazz
+	 * @param <T>
+	 * @return
+	 */
+	public <T> T getData(Object data, Class<T> clazz){
+		if(data == null) {
+			return null;
+		}
+		try {
+			String jsonStr = objectMapper.writeValueAsString(data);
+			return objectMapper.readValue(jsonStr, clazz);
+		} catch (JsonProcessingException e) {
+			log.error("json data process error", e);
+		}
+		return null;
+	}
+
+	/**
+	 *  用于支持获取远程调用返回数据的转换
+	 *  注意事项：
+	 *      支持多单词下划线专驼峰（序列化和反序列化）
+	 *
+	 *
+	 * @param typeReference
+	 * @param <T>
+	 * @return
+	 */
+	public <T> T getData(Object data, TypeReference<T> typeReference){
+		if(data == null) {
+			return null;
+		}
+		try {
+			String jsonStr = objectMapper.writeValueAsString(data);
+			return objectMapper.readValue(jsonStr, typeReference);
+		} catch (JsonProcessingException e) {
+			log.error("json data process error", e);
 		}
 		return null;
 	}
