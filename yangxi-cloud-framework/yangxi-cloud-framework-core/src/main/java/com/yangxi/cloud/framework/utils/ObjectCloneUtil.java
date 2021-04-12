@@ -3,6 +3,7 @@ package com.yangxi.cloud.framework.utils;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yangxi.cloud.framework.core.AbstractObject;
+import com.yangxi.cloud.framework.core.CloneDirection;
 import com.yangxi.cloud.framework.core.PageResult;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class ObjectCloneUtil {
 	 * @return 转换后的集合
 	 */
 	public static <T> List<T> convertList(List<? extends AbstractObject> sourceList,
-										  Class<T> targetClazz, Integer cloneDirection) {
+										  Class<T> targetClazz, CloneDirection cloneDirection) {
 		if(sourceList == null) {
 			return null;
 		}
@@ -90,7 +91,7 @@ public class ObjectCloneUtil {
 	 * @return 转换后的集合
 	 */
 	public static <T> List<T> convertList(List<? extends AbstractObject> sourceList,
-										  Class<T> targetClazz, Integer cloneDirection, Consumer<T> consumer) {
+										  Class<T> targetClazz, CloneDirection cloneDirection, Consumer<T> consumer) {
 		if(sourceList == null) {
 			return null;
 		}
@@ -131,7 +132,7 @@ public class ObjectCloneUtil {
 	 * @return 转换后的集合
 	 */
 	public static <T> IPage<T> convertPage(IPage<? extends AbstractObject> sourcePage,
-										   Class<T> targetClazz, Integer cloneDirection) {
+										   Class<T> targetClazz, CloneDirection cloneDirection) {
 		if(sourcePage == null) {
 			return null;
 		}
@@ -171,7 +172,7 @@ public class ObjectCloneUtil {
 	 * @return 转换后的集合
 	 */
 	public static <T> IPage<T> convertPage(IPage<? extends AbstractObject> sourcePage,
-										   Class<T> targetClazz, Integer cloneDirection, Consumer<T> consumer) {
+										   Class<T> targetClazz, CloneDirection cloneDirection, Consumer<T> consumer) {
 		if(sourcePage == null) {
 			return null;
 		}
@@ -214,7 +215,7 @@ public class ObjectCloneUtil {
 	 * @param cloneDirection 深度分页参数 @See CloneDirection.java
 	 * @return
 	 */
-	public static <T> PageResult<T> convertPageResult(PageResult<? extends AbstractObject> sourcePageBean, Class<T> targetClazz, Integer cloneDirection) {
+	public static <T> PageResult<T> convertPageResult(PageResult<? extends AbstractObject> sourcePageBean, Class<T> targetClazz, CloneDirection cloneDirection) {
 		if(sourcePageBean == null) {
 			return null;
 		}
@@ -261,7 +262,7 @@ public class ObjectCloneUtil {
 	 * @param cloneDirection 深度分页参数 @See CloneDirection.java
 	 * @return
 	 */
-	public static <T> PageResult<T> convertPageResult(PageResult<? extends AbstractObject> sourcePageBean, Class<T> targetClazz, Integer cloneDirection, Consumer<T> consumer) {
+	public static <T> PageResult<T> convertPageResult(PageResult<? extends AbstractObject> sourcePageBean, Class<T> targetClazz, CloneDirection cloneDirection, Consumer<T> consumer) {
 		if(sourcePageBean == null) {
 			return null;
 		}

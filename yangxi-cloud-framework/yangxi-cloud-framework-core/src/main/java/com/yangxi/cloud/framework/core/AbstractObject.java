@@ -56,7 +56,7 @@ public abstract class AbstractObject {
 	 * @param cloneDirection 深入克隆的方向，具体赋值参见CloneDirection.java常量类
 	 * @return 目标对象实例
 	 */
-	public <T> T clone(Class<T> targetClazz, Integer cloneDirection) {
+	public <T> T clone(Class<T> targetClazz, CloneDirection cloneDirection) {
 		try {
 
 			// 先完成基本字段的浅克隆
@@ -214,7 +214,7 @@ public abstract class AbstractObject {
 	 * @param cloneTargetClazz 目标集合对象中元素类型
 	 * @param cloneDirection 深度克隆
 	 */
-	private void cloneList(Collection sourceList, Collection targetList, Class cloneTargetClazz, Integer cloneDirection) {
+	private void cloneList(Collection sourceList, Collection targetList, Class cloneTargetClazz, CloneDirection cloneDirection) {
 		for (Object object : sourceList) {
 			if(object instanceof AbstractObject) {
 				AbstractObject targetObject = (AbstractObject) object;

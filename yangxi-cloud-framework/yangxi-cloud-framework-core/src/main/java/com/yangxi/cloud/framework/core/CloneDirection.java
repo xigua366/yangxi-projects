@@ -5,19 +5,21 @@ package com.yangxi.cloud.framework.core;
  * @author yangxi
  *
  */
-public class CloneDirection {
+public enum CloneDirection {
 
 	/**
 	 * 正向克隆：从Request->DTO，DTO->DO
 	 */
-	public static final Integer FORWARD = 1;
+	FORWARD(1),
 	/**
 	 * 反向克隆：从DO->DTO，DTO->VO
 	 */
-	public static final Integer OPPOSITE = 2;
-	
-	private CloneDirection() {
-		
+	OPPOSITE(2);
+
+	private Integer code;
+
+	CloneDirection(Integer code){
+		this.code = code;
 	}
 	
 }
