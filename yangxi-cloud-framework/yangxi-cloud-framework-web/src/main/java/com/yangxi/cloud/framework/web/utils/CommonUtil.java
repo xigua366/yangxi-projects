@@ -1,4 +1,5 @@
 package com.yangxi.cloud.framework.web.utils;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +24,7 @@ import java.util.UUID;
 public class CommonUtil {
 
     /**
-     * 获取ip
+     * 获取客户端发起请求的IP地址
      *
      * @param request
      * @return
@@ -90,7 +91,7 @@ public class CommonUtil {
 
 
     /**
-     * 获取验证码随机数
+     * 获取指定长度的验证码随机数
      *
      * @param length
      * @return
@@ -118,13 +119,16 @@ public class CommonUtil {
 
 
     /**
-     * 生成uuid
+     * 生成大写的UUID，并替换掉'-'
      *
      * @return
      */
     public static String generateUUID() {
-        return UUID.randomUUID().toString().replaceAll("-", "").substring(0, 32);
+        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
     }
+
+
+    private static final String ALL_CHAR_NUM = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     /**
      * 获取随机长度的串
@@ -132,8 +136,6 @@ public class CommonUtil {
      * @param length
      * @return
      */
-    private static final String ALL_CHAR_NUM = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
     public static String getStringNumRandom(int length) {
         //生成随机数字和字母,
         Random random = new Random();
@@ -162,7 +164,7 @@ public class CommonUtil {
             response.flushBuffer();
 
         } catch (IOException e) {
-            log.warn("响应json数据给前端异常:{}",e);
+            log.warn("响应json数据给前端异常", e);
         }
 
 

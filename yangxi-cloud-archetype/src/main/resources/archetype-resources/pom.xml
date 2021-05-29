@@ -17,7 +17,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>${rootArtifactId}-api</module>
+		<module>${rootArtifactId}-rpc</module>
 		<module>${rootArtifactId}-common</module>
 		<module>${rootArtifactId}-service</module>
 	</modules>
@@ -34,7 +34,7 @@
 		<dependencies>
 			<dependency>
 				<groupId>${groupId}</groupId>
-				<artifactId>${rootArtifactId}-api</artifactId>
+				<artifactId>${rootArtifactId}-rpc</artifactId>
 				<version>${version}</version>
 			</dependency>
 

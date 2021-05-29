@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * swagger ui 3.0版本的配置
+ * swagger ui 2.9版本的配置
  * @author yangxi
  * @version 1.0
  */
@@ -71,9 +71,9 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("yang-boot基础开发平台")
-                .description("xx系统接口文档")
-                .contact(new Contact("admin", "https://www.xigua366.cn", "xigua366@163.com"))
+                .title("yang-cloud基础开发平台")
+                .description("sample系统接口文档")
+                .contact(new Contact("yangxi", "https://www.xigua366.cn", "xigua366@163.com"))
                 .version("v1.0")
                 .build();
     }

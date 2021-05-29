@@ -1,4 +1,4 @@
-package com.yangxi.cloud.sample.api;
+package com.yangxi.cloud.sample.rpc;
 
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.core.PageResult;
@@ -6,6 +6,7 @@ import com.yangxi.cloud.sample.domain.dto.DemoDTO;
 import com.yangxi.cloud.sample.domain.query.DemoQuery;
 import com.yangxi.cloud.sample.domain.request.AddDemoRequest;
 import com.yangxi.cloud.sample.domain.request.UpdateDemoRequest;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  * @version 1.0
  */
 @RequestMapping("/rpc/v1/demo")
-public interface SampleRpcApi {
+public interface SampleRpc {
 
     /**
      * 根据ID查询信息
@@ -31,7 +32,7 @@ public interface SampleRpcApi {
      * @return
      */
     @GetMapping("/page")
-    JsonData<PageResult<DemoDTO>> pageDemo(DemoQuery demoQuery);
+    JsonData<PageResult<DemoDTO>> pageDemo(@SpringQueryMap DemoQuery demoQuery);
 
     /**
      * 新增

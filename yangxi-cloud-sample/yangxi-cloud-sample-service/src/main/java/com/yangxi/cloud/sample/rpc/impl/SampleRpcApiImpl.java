@@ -1,13 +1,14 @@
-package com.yangxi.cloud.sample.api.impl;
+package com.yangxi.cloud.sample.rpc.impl;
 
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.core.PageResult;
-import com.yangxi.cloud.sample.api.SampleRpcApi;
 import com.yangxi.cloud.sample.domain.dto.DemoDTO;
 import com.yangxi.cloud.sample.domain.query.DemoQuery;
 import com.yangxi.cloud.sample.domain.request.AddDemoRequest;
 import com.yangxi.cloud.sample.domain.request.UpdateDemoRequest;
+import com.yangxi.cloud.sample.rpc.SampleRpc;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-public class SampleRpcApiImpl implements SampleRpcApi {
+public class SampleRpcApiImpl implements SampleRpc {
 
     @Override
     public JsonData<DemoDTO> getDemo(@PathVariable("demoId") Long demoId) {
@@ -32,7 +33,7 @@ public class SampleRpcApiImpl implements SampleRpcApi {
     }
 
     @Override
-    public JsonData<PageResult<DemoDTO>> pageDemo(DemoQuery demoQuery) {
+    public JsonData<PageResult<DemoDTO>> pageDemo(@SpringQueryMap DemoQuery demoQuery) {
         List<DemoDTO> list = new ArrayList<>();
         DemoDTO demoDTO1 = new DemoDTO();
         demoDTO1.setId(1L);

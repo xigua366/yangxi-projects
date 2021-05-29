@@ -22,6 +22,7 @@ public class CheckUtil {
     private static final Pattern PHONE_PATTERN = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
 
     /**
+     * 是否是邮箱
      * @param email
      * @return
      */
@@ -34,7 +35,7 @@ public class CheckUtil {
     }
 
     /**
-     * 暂时未用
+     * 是否是手机号码
      * @param phone
      * @return
      */

@@ -17,18 +17,12 @@
 
 		<dependency>
 			<groupId>com.yangxi.cloud.sample</groupId>
-			<artifactId>yangxi-cloud-sample-api</artifactId>
+			<artifactId>yangxi-cloud-sample-rpc</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.yangxi.cloud.sample</groupId>
 			<artifactId>yangxi-cloud-sample-common</artifactId>
-		</dependency>
-
-		<!-- 使用sentinel做限流降级与熔断降级 -->
-		<dependency>
-			<groupId>com.yangxi.cloud</groupId>
-			<artifactId>yangxi-cloud-starter-sentinel</artifactId>
 		</dependency>
 
 		<!-- 代码自动生成依赖 begin -->
