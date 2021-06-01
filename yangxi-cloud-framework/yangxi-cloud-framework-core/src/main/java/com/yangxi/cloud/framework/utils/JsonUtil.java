@@ -21,7 +21,7 @@ import java.util.List;
 @Slf4j
 public class JsonUtil {
 
-	private static ObjectMapper objectMapper = new ObjectMapperImpl();
+	private static final ObjectMapper objectMapper = new ObjectMapperImpl();
 
 	/**
 	 * 单个对象转json字符串
@@ -37,7 +37,7 @@ public class JsonUtil {
 		try {
 			s = objectMapper.writeValueAsString(o);
 		} catch (Exception e) {
-			log.error("object to json error", e);
+			log.warn("object to json error", e);
 		}
 		return s;
 	}
@@ -96,7 +96,7 @@ public class JsonUtil {
 		try {
 			return objectMapper.readValue(json, clazz);
 		} catch (Exception e) {
-			log.error("json to object error", e);
+			log.warn("json to object error", e);
 		}
 		return null;
 	}
@@ -115,7 +115,7 @@ public class JsonUtil {
 		try {
 			return objectMapper.readValue(json, typeReference);
 		} catch (Exception e) {
-			log.error("json to object error", e);
+			log.warn("json to object error", e);
 		}
 		return null;
 	}
@@ -138,7 +138,7 @@ public class JsonUtil {
 			String jsonStr = objectMapper.writeValueAsString(data);
 			return objectMapper.readValue(jsonStr, clazz);
 		} catch (JsonProcessingException e) {
-			log.error("json data process error", e);
+			log.warn("json data process error", e);
 		}
 		return null;
 	}
@@ -161,7 +161,7 @@ public class JsonUtil {
 			String jsonStr = objectMapper.writeValueAsString(data);
 			return objectMapper.readValue(jsonStr, typeReference);
 		} catch (JsonProcessingException e) {
-			log.error("json data process error", e);
+			log.warn("json data process error", e);
 		}
 		return null;
 	}

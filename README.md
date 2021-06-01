@@ -47,7 +47,7 @@ mvn archetype:generate                                    \
   -DarchetypeVersion=1.0.0-SNAPSHOT                       \
   -DgroupId=com.yangxi                                    \
   -DartifactId=yangxi-cloud-sample                         \
-  -Dpackage=com.yangxi.cloud.sample                        \
+  -Dpackage=cn.xigua366.sample                        \
   -Dversion=1.0.0-SNAPSHOT                                \
   -DarchetypeCatalog=local
 ```

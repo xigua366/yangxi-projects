@@ -14,7 +14,7 @@
             <defaultValue>1.0.0-SNAPSHOT</defaultValue>
         </requiredProperty>
         <requiredProperty key="package">
-            <defaultValue>com.yangxi.cloud.sample</defaultValue>
+            <defaultValue>cn.xigua366.sample</defaultValue>
         </requiredProperty>
     </requiredProperties>
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.yangxi.cloud.sample.mapper.SchoolMapper">
+<mapper namespace="cn.xigua366.sample.mapper.SchoolMapper">
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="SchoolDO">
@@ -18,7 +18,7 @@
     </sql>
 
     <!-- 分页查询学校信息 -->
-    <select id="pageSchool2" resultType="com.yangxi.cloud.sample.domain.dto.PageSchoolDTO">
+    <select id="pageSchool2" resultType="cn.xigua366.sample.domain.dto.PageSchoolDTO">
         select `id`, tenant_id, app_id, `name`, `address`
         from t_school t1
         where t1.name like concat('%', #{name},'%')
