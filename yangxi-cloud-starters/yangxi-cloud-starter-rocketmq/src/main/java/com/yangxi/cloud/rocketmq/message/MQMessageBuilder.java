@@ -1,6 +1,6 @@
 package com.yangxi.cloud.rocketmq.message;
 
-import com.yangxi.cloud.framework.web.constant.TenantContextConstant;
+import com.yangxi.cloud.framework.web.constants.TenantContextConstant;
 import com.yangxi.cloud.framework.web.context.TenantContext;
 import org.springframework.lang.Nullable;
 import org.springframework.messaging.Message;
@@ -13,6 +13,15 @@ import org.springframework.util.Assert;
 
 import java.util.Map;
 
+/**
+ * <p>
+ * Rocketmq实现了Spring message标准的客户端消费体构建者扩展组件
+ * 主要用于自动传递多租户TenantId信息
+ * </p>
+ *
+ * @author yangxi
+ * @version 1.0
+ */
 public final class MQMessageBuilder<T> {
 
 	private final T payload;

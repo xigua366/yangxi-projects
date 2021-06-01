@@ -1,14 +1,17 @@
 package com.yangxi.cloud.openfeign.interceptor;
 
-import com.yangxi.cloud.framework.web.constant.TenantContextConstant;
+import com.yangxi.cloud.framework.web.constants.TenantContextConstant;
 import com.yangxi.cloud.framework.web.context.TenantContext;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 
 /**
+ * <p>
  * 默认的openfeign拦截器组件
+ * </p>
  *
  * @author yangxi
+ * @version 1.0
  */
 public class DefaultFeignRequestInterceptor implements RequestInterceptor {
 

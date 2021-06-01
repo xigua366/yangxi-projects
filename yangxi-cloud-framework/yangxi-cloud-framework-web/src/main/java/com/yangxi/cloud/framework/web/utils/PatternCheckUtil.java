@@ -4,11 +4,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 常用格式校验工具
+ * <P>
+ * 常用格式检查工具方法
+ * </P>
  *
  * @author yangxi
+ * @version 1.0
  */
-public class CheckUtil {
+public class PatternCheckUtil {
 
 
     /**

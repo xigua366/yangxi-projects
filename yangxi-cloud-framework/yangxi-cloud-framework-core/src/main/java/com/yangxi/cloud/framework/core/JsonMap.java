@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * <p>
  * 自定义Map实现，完全兼容java.util.HashMap
+ * </p>
+ *
  * @author yangxi
  * @version 1.0
  */

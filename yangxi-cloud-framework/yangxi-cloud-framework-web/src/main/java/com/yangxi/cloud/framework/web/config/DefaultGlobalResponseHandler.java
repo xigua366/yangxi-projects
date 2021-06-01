@@ -5,9 +5,9 @@ import com.yangxi.cloud.framework.core.JsonMap;
 import com.yangxi.cloud.framework.utils.JsonUtil;
 import com.yangxi.cloud.framework.web.utils.CommonUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
@@ -18,17 +18,20 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
 import java.util.Objects;
 
 /**
+ * <p>
+ * 默认的Spring mvc全局响应结果处理器
+ * </p>
+ *
  * @author yangxi
  * @version 1.0
- * @date 2020-10-10 17:26
  */
 @Slf4j
 @Configuration
 @RestControllerAdvice
+@Order
 public class DefaultGlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     /**
@@ -69,7 +72,7 @@ public class DefaultGlobalResponseHandler implements ResponseBodyAdvice<Object> 
                     return null;
                 }
             } catch(Exception e) {
-                log.error("get httpServletResponse error", e);
+                log.warn("响应字符串对象给前端异常", e);
             }
 
             return JsonUtil.object2Json(JsonData.buildSuccess(body));

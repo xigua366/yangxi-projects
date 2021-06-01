@@ -11,9 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * json对象转换工具
+ * <p>
+ * Json对象转换工具
+ * </p>
  *
  * @author yangxi
+ * @version 1.0
  */
 @Slf4j
 public class JsonUtil {

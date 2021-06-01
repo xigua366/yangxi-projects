@@ -1,4 +1,4 @@
-package com.yangxi.cloud.framework.web.constant;
+package com.yangxi.cloud.framework.web.constants;
 
 /**
  * <p>

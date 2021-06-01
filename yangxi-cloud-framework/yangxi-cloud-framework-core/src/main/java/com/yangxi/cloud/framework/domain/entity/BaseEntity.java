@@ -10,6 +10,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * <P>
+ * 基础Entity对象父类
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

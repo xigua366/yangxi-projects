@@ -5,6 +5,10 @@ import com.yangxi.cloud.framework.core.AbstractObject;
 import java.io.Serializable;
 
 /**
+ * <P>
+ * 基础DTO对象父类
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

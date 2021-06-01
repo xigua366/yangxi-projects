@@ -15,10 +15,12 @@ import java.util.Random;
 import java.util.UUID;
 
 /**
+ * <p>
  * 一些通用工具方法
+ * </p>
  *
  * @author yangxi
- *
+ * @version 1.0
  */
 @Slf4j
 public class CommonUtil {

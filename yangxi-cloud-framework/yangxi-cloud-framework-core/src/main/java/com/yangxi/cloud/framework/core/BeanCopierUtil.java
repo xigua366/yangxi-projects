@@ -7,10 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * <p>
  * BeanCopier工具类
+ * </p>
  *
  * @author yangxi
- *
+ * @version 1.0
  */
 public class BeanCopierUtil {
 

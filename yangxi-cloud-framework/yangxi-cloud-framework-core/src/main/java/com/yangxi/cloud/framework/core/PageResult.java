@@ -6,9 +6,12 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+ * <p>
  * 统一的分页返回对象
- * @author yangxi
+ * </p>
  *
+ * @author yangxi
+ * @version 1.0
  */
 public class PageResult<T> implements Serializable {
 

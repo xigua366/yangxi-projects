@@ -4,6 +4,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
+ * <p>
+ * 基础Query对象父类 带分页参数
+ * </p>
+ *
  * @author yangxi
  * @version 1.0
  */

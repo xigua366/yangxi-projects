@@ -3,9 +3,12 @@ package com.yangxi.cloud.framework.exception;
 import java.text.MessageFormat;
 
 /**
+ * <P>
  * 自定义业务异常
- * @author yangxi
+ * </P>
  *
+ * @author yangxi
+ * @version 1.0
  */
 public class BizException extends RuntimeException {
 

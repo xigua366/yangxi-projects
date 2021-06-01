@@ -8,10 +8,12 @@ import java.math.BigDecimal;
 import java.util.*;
 
 /**
+ * <p>
  * 基础POJO类
+ * </p>
  *
  * @author yangxi
- *
+ * @version 1.0
  */
 @SuppressWarnings({ "rawtypes", "unchecked" })
 public abstract class AbstractObject {

@@ -1,9 +1,12 @@
 package com.yangxi.cloud.framework.core;
 
 /**
- * 克隆方向
- * @author yangxi
+ * <P>
+ * 克隆方向枚举
+ * </P>
  *
+ * @author yangxi
+ * @version 1.0
  */
 public enum CloneDirection {
 

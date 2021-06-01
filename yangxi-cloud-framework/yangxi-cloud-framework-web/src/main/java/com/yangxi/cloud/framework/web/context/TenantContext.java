@@ -4,7 +4,7 @@ import com.alibaba.ttl.TransmittableThreadLocal;
 
 /**
  * <p>
- *    租户上下文信息，用于实现多租户
+ * 租户上下文信息，用于实现多租户
  * </p>
  *
  * @author yangxi
@@ -14,7 +14,6 @@ public class TenantContext {
 
     /**
      * 租户ID
-     *
      */
     private static final ThreadLocal<String> TENANT_ID = new TransmittableThreadLocal<>();
 

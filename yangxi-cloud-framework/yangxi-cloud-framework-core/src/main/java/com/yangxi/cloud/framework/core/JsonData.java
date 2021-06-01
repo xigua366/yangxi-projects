@@ -6,10 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.Serializable;
 
 /**
- * Controller接口返回统一封装对象
+ * <p>
+ * 统一的Spring mvc响应结果封装对象
+ * </p>
  *
  * @author yangxi
- *
+ * @version 1.0
  */
 @Slf4j
 public class JsonData<T> implements Serializable {

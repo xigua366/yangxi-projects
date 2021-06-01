@@ -1,10 +1,15 @@
 package com.yangxi.cloud.rocketmq.client;
 
-import com.yangxi.cloud.framework.web.constant.TenantContextConstant;
+import com.yangxi.cloud.framework.web.constants.TenantContextConstant;
 import com.yangxi.cloud.framework.web.context.TenantContext;
 import org.apache.rocketmq.common.message.Message;
 
 /**
+ * <p>
+ * Apache Rocketmq原生客户端消费体扩展组件
+ * 主要用于自动传递多租户TenantId信息
+ * </p>
+ *
  * @author yangxi
  * @version 1.0
  */

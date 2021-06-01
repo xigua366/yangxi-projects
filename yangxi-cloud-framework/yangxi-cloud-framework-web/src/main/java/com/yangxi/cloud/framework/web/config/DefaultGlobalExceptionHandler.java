@@ -21,14 +21,18 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * 全局业务异常处理器
+ * <p>
+ * 默认的Spring mvc全局异常处理器
+ * </p>
+ *
  * @author yangxi
+ * @version 1.0
  **/
 @Slf4j
 @Configuration
 @RestControllerAdvice
 @Order
-public class DefaultGlobalBizExceptionHandler {
+public class DefaultGlobalExceptionHandler {
 
     // =========== 系统级别未知异常 =========
 

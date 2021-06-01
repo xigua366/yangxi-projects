@@ -1,7 +1,9 @@
 package com.yangxi.cloud.framework.exception;
 
 /**
+ * <p>
  * 系统通用的业务异常错误码枚举
+ * </p>
  *
  * @author yangxi
  * @version 1.0

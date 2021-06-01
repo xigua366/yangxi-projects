@@ -1,9 +1,12 @@
 package com.yangxi.cloud.framework.core;
 
 /**
+ * <p>
  * 领域模型对象的类型
- * @author yangxi
+ * </p>
  *
+ * @author yangxi
+ * @version 1.0
  */
 public class DomainType {
 

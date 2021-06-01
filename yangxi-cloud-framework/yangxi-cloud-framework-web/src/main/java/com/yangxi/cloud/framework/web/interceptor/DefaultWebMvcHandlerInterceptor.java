@@ -1,6 +1,6 @@
 package com.yangxi.cloud.framework.web.interceptor;
 
-import com.yangxi.cloud.framework.web.constant.TenantContextConstant;
+import com.yangxi.cloud.framework.web.constants.TenantContextConstant;
 import com.yangxi.cloud.framework.web.context.TenantContext;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * <p>
  * 默认的Spring mvc拦截器组件
+ * </p>
  *
  * @author yangxi
  * @version 1.0

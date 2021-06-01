@@ -16,7 +16,7 @@ import java.util.function.Consumer;
  * <p/>
  *
  * @author yangxi
- *
+ * @version 1.0
  */
 public class ObjectCloneUtil {
 
