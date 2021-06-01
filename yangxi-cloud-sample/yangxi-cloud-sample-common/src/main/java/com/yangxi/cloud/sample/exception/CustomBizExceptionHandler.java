@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
  * 自定义统一业务异常处理器
+ *
  * @author yangxi
+ * @version 1.0
  **/
 @Slf4j
 @RestControllerAdvice

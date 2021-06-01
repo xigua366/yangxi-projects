@@ -10,7 +10,9 @@ import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.*;
 
 /**
+ * <p>
  * 服务间内部调用的Rpc接口示例
+ * </p>
  *
  * @author yangxi
  * @version 1.0

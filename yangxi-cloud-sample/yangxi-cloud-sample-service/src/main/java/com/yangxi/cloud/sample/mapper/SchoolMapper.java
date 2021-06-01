@@ -14,8 +14,8 @@ import org.apache.ibatis.annotations.Param;
  *  Mapper 接口
  * </p>
  *
- * @author xi.yang
- * @since 2021-02-27
+ * @author yangxi
+ * @version 1.0
  */
 @Mapper
 public interface SchoolMapper extends BaseMapper<SchoolDO> {

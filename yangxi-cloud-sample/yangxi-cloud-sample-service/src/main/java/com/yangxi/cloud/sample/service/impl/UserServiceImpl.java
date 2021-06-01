@@ -20,7 +20,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
+ * <p>
  * 用户管理服务Service组件
+ * </p>
+ *
  * @author yangxi
  * @version 1.0
  */

@@ -4,6 +4,10 @@ import com.yangxi.cloud.framework.domain.query.BasePageQuery;
 import lombok.Data;
 
 /**
+ * <P>
+ *
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

@@ -4,6 +4,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.yangxi.cloud.sample.domain.entity.UserDO;
 
 /**
+ * <P>
+ *
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

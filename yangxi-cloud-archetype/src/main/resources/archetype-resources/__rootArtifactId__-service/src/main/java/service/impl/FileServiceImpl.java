@@ -6,8 +6,12 @@ import org.springframework.util.Assert;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
+ * <p>
  * 上传文件服务Service组件
+ * </p>
+ *
  * @author yangxi
+ * @version 1.0
  */
 @Service
 public class FileServiceImpl implements FileService {

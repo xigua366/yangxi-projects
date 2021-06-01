@@ -18,7 +18,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * swagger ui 2.9版本的配置
+ * <p>
+ * Swagger UI配置
+ * </p>
+ *
  * @author yangxi
  * @version 1.0
  */

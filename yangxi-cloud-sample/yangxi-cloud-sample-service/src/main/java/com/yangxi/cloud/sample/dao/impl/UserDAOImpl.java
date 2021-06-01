@@ -8,6 +8,10 @@ import com.yangxi.cloud.sample.mapper.UserMapper;
 import org.springframework.stereotype.Repository;
 
 /**
+ * <P>
+ *
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

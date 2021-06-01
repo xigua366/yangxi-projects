@@ -6,6 +6,10 @@ import com.yangxi.cloud.sample.domain.dto.PageSchoolDTO;
 import com.yangxi.cloud.sample.domain.entity.SchoolDO;
 
 /**
+ * <P>
+ *
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

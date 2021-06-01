@@ -7,7 +7,10 @@ import ${package}.domain.dto.SchoolDTO;
 import ${package}.domain.query.PageSchoolQuery;
 
 /**
+ * <p>
  * 学校信息Service组件
+ * <p/>
+ *
  * @author yangxi
  * @version 1.0
  */

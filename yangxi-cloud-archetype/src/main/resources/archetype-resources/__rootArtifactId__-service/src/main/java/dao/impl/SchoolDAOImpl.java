@@ -10,6 +10,10 @@ import ${package}.mapper.SchoolMapper;
 import org.springframework.stereotype.Repository;
 
 /**
+ * <P>
+ *
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

@@ -6,6 +6,10 @@ import ${package}.domain.dto.PageSchoolDTO;
 import ${package}.domain.entity.SchoolDO;
 
 /**
+ * <P>
+ *
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

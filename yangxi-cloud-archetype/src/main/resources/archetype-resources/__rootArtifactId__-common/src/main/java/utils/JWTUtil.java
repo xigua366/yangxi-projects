@@ -8,15 +8,18 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import java.util.Date;
 
 /**
+ * <p>
  * Jwt工具类
- *
- * @author yangxi
  *
  * 注意点:
  * 1、生成的token, 是可以通过base64进行解密出明文信息
  * 2、base64进行解密出明文信息，修改再进行编码，则会解密失败
  * 3、无法作废已颁布的token，除非改秘钥
  * 4、一般借助redis存储来失效jwt令牌
+ * </p>
+ *
+ * @author yangxi
+ * @version 1.0
  */
 public class JWTUtil {
 

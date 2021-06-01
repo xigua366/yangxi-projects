@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * <P>
  * hello world示例
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

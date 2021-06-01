@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.*;
 
 
 /**
+ * <P>
+ * 学生管理
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

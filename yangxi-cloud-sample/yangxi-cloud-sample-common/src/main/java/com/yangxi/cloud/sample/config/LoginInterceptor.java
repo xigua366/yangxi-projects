@@ -15,8 +15,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @author yangxi
+ * <p>
  * 登录拦截器
+ * </p>
+ *
+ * @author yangxi
+ * @version 1.0
  */
 @Slf4j
 public class LoginInterceptor implements HandlerInterceptor {

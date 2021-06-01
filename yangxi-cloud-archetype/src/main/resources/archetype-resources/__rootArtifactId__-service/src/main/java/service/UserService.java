@@ -4,8 +4,12 @@ import ${package}.domain.request.LoginRequest;
 import ${package}.domain.request.RegisterRequest;
 
 /**
+ * <p>
  * 用户管理服务Service接口
+ * </p>
+ *
  * @author yangxi
+ * @version 1.0
  */
 public interface UserService {
 

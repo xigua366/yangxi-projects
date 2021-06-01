@@ -17,6 +17,10 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Date;
 
 /**
+ * <p>
+ * Mybatis Plus配置
+ * </p>
+ *
  * @author yangxi
  * @version 1.0
  */

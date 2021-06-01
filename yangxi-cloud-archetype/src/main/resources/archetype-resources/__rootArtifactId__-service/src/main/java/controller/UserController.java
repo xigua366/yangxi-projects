@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * <p>
  * 会员用户管理
+ * </p>
+ *
  * @author yangxi
  * @version 1.0
  */

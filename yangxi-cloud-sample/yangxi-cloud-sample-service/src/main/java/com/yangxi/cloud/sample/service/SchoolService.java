@@ -7,7 +7,10 @@ import com.yangxi.cloud.sample.domain.dto.SchoolDTO;
 import com.yangxi.cloud.sample.domain.query.PageSchoolQuery;
 
 /**
+ * <p>
  * 学校信息Service组件
+ * <p/>
+ *
  * @author yangxi
  * @version 1.0
  */

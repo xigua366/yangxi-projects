@@ -9,8 +9,8 @@ import lombok.Data;
  * 
  * </p>
  *
- * @author xi.yang
- * @since 2021-03-30
+ * @author yangxi
+ * @version 1.0
  */
 @Data
 @TableName("t_user")

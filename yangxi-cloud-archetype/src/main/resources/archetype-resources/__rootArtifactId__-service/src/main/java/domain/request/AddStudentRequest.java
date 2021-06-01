@@ -6,7 +6,10 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
+ * <P>
  * 新增学生信息请求参数
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

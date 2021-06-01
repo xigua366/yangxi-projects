@@ -5,6 +5,10 @@ import com.yangxi.cloud.framework.domain.entity.BaseEntity;
 import lombok.Data;
 
 /**
+ * <P>
+ *
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */

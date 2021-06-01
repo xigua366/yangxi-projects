@@ -8,7 +8,10 @@ import ${package}.domain.request.AddStudentRequest;
 import ${package}.domain.request.UpdateStudentRequest;
 
 /**
+ * <p>
  * 学生信息Service组件
+ * </p>
+ *
  * @author yangxi
  * @version 1.0
  */

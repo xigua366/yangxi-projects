@@ -3,12 +3,15 @@ package ${package}.exception;
 import com.yangxi.cloud.framework.exception.BaseErrorCodeEnum;
 
 /**
+ * <p>
  * 业务错误码枚举定义
- * @author yangxi
  *
  * 状态码定义约束，共6位数，前三位代表服务，后三位代表接口
  * 比如 商品服务210,购物车是220、用户服务230，403代表权限
+ * </p>
  *
+ * @author yangxi
+ * @version 1.0
  **/
 public enum BizErrorCodeEnum implements BaseErrorCodeEnum {
 

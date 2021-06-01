@@ -11,6 +11,10 @@ import com.yangxi.cloud.sample.mapper.StudentMapper;
 import org.springframework.stereotype.Repository;
 
 /**
+ * <P>
+ *
+ * </P>
+ *
  * @author yangxi
  * @version 1.0
  */
