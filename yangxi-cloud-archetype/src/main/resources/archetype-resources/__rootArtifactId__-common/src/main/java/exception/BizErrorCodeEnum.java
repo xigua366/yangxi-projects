@@ -1,6 +1,6 @@
 package ${package}.exception;
 
-import com.yangxi.cloud.framework.exception.BaseBizCodeEnum;
+import com.yangxi.cloud.framework.exception.BaseErrorCodeEnum;
 
 /**
  * 业务错误码枚举定义
@@ -10,7 +10,7 @@ import com.yangxi.cloud.framework.exception.BaseBizCodeEnum;
  * 比如 商品服务210,购物车是220、用户服务230，403代表权限
  *
  **/
-public enum BizCodeEnum implements BaseBizCodeEnum {
+public enum BizErrorCodeEnum implements BaseErrorCodeEnum {
 
     /**
      * 通用操作码
@@ -103,7 +103,7 @@ public enum BizCodeEnum implements BaseBizCodeEnum {
 
     private String msg;
 
-    BizCodeEnum(Integer code, String msg){
+    BizErrorCodeEnum(Integer code, String msg){
         this.code = code;
         this.msg = msg;
     }

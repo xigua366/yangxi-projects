@@ -1,6 +1,6 @@
 package com.yangxi.cloud.framework.core;
 
-import com.yangxi.cloud.framework.exception.BaseBizCodeEnum;
+import com.yangxi.cloud.framework.exception.BaseErrorCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
@@ -89,11 +89,11 @@ public class JsonData<T> implements Serializable {
 
     /**
      * 失败，枚举类定义错误码和信息
-     * @param baseBizCodeEnum
+     * @param baseErrorCodeEnum
      * @return
      */
-    public static <T> JsonData<T> buildError(BaseBizCodeEnum baseBizCodeEnum) {
-        return new JsonData<>(baseBizCodeEnum.getCode() ,null, baseBizCodeEnum.getMsg());
+    public static <T> JsonData<T> buildError(BaseErrorCodeEnum baseErrorCodeEnum) {
+        return new JsonData<>(baseErrorCodeEnum.getCode() ,null, baseErrorCodeEnum.getMsg());
     }
 
 

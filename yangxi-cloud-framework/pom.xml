@@ -29,6 +29,8 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<yangxi.cloud.version>1.0.0-SNAPSHOT</yangxi.cloud.version>
 	</properties>
 
 
@@ -87,6 +89,25 @@
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>1.18.16</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>transmittable-thread-local</artifactId>
+				<version>2.11.5</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.hibernate.validator</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>6.1.5.Final</version>
+			</dependency>
+
+			<!-- yangxi-cloud framework依赖 -->
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-cloud-framework-core</artifactId>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 			
 		</dependencies>

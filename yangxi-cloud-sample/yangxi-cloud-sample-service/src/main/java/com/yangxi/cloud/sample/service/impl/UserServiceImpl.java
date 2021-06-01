@@ -1,7 +1,6 @@
 package com.yangxi.cloud.sample.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.exception.BizException;
 import com.yangxi.cloud.framework.web.utils.CommonUtil;
 import com.yangxi.cloud.sample.dao.UserDAO;
@@ -9,7 +8,7 @@ import com.yangxi.cloud.sample.domain.LoginUser;
 import com.yangxi.cloud.sample.domain.entity.UserDO;
 import com.yangxi.cloud.sample.domain.request.LoginRequest;
 import com.yangxi.cloud.sample.domain.request.RegisterRequest;
-import com.yangxi.cloud.sample.exception.BizCodeEnum;
+import com.yangxi.cloud.sample.exception.BizErrorCodeEnum;
 import com.yangxi.cloud.sample.service.UserService;
 import com.yangxi.cloud.sample.utils.JWTUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -55,7 +54,7 @@ public class UserServiceImpl implements UserService {
 
         // 唯一性检查
         if(!checkUnique(userDO.getPhone())) {
-            throw new BizException(BizCodeEnum.ACCOUNT_REPEAT);
+            throw new BizException(BizErrorCodeEnum.ACCOUNT_REPEAT);
         }
 
         boolean result = userDAO.save(userDO);
@@ -88,13 +87,13 @@ public class UserServiceImpl implements UserService {
         // 验证手机号码+密码的逻辑
         UserDO userDO = userDAO.findUserByPhone(loginRequest.getPhone());
         if(userDO == null) {
-            throw new BizException(BizCodeEnum.ACCOUNT_UNREGISTER);
+            throw new BizException(BizErrorCodeEnum.ACCOUNT_UNREGISTER);
         }
 
         String cryptPwd = Md5Crypt.md5Crypt(loginRequest.getPwd().getBytes(), userDO.getSecret());
         if (!cryptPwd.equals(userDO.getPwd())) {
             // 账号或密码错误
-            throw new BizException(BizCodeEnum.ACCOUNT_PWD_ERROR);
+            throw new BizException(BizErrorCodeEnum.ACCOUNT_PWD_ERROR);
         }
 
         // 登录成功，生成token

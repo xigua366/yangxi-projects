@@ -1,9 +1,10 @@
 package com.yangxi.cloud.sample.config;
 
+import com.alibaba.ttl.TransmittableThreadLocal;
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.web.utils.CommonUtil;
 import com.yangxi.cloud.sample.domain.LoginUser;
-import com.yangxi.cloud.sample.exception.BizCodeEnum;
+import com.yangxi.cloud.sample.exception.BizErrorCodeEnum;
 import com.yangxi.cloud.sample.utils.JWTUtil;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,10 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginInterceptor implements HandlerInterceptor {
 
 
-    public static ThreadLocal<LoginUser> threadLocal = new ThreadLocal<>();
+    /**
+     * 登录用户上下文信息
+     */
+    public static ThreadLocal<LoginUser> logUserThreadLocal = new TransmittableThreadLocal<>();
 
 
     @Override
@@ -37,7 +41,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             Claims claims = JWTUtil.checkJWT(accessToken);
             if(claims == null){
                 //未登录
-                CommonUtil.sendJsonMessage(response, JsonData.buildError(BizCodeEnum.ACCOUNT_UNLOGIN));
+                CommonUtil.sendJsonMessage(response, JsonData.buildError(BizErrorCodeEnum.ACCOUNT_UNLOGIN));
                 return false;
             }
 
@@ -54,17 +58,17 @@ public class LoginInterceptor implements HandlerInterceptor {
             loginUser.setMail(mail);
             loginUser.setPhone(phone);
 
-            threadLocal.set(loginUser);
+            logUserThreadLocal.set(loginUser);
             return true;
         }
 
-        CommonUtil.sendJsonMessage(response, JsonData.buildError(BizCodeEnum.ACCOUNT_UNLOGIN));
+        CommonUtil.sendJsonMessage(response, JsonData.buildError(BizErrorCodeEnum.ACCOUNT_UNLOGIN));
         return false;
     }
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
         // 每次请求完成后都清空一下
-        threadLocal.remove();
+        logUserThreadLocal.remove();
     }
 }

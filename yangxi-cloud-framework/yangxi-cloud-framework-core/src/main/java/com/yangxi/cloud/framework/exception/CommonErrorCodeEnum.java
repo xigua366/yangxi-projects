@@ -1,0 +1,90 @@
+package com.yangxi.cloud.framework.exception;
+
+/**
+ * 系统通用的业务异常错误码枚举
+ *
+ * @author yangxi
+ * @version 1.0
+ */
+public enum CommonErrorCodeEnum implements BaseErrorCodeEnum {
+
+    // =========== 系统级别未知异常 =========
+
+    /**
+     * 系统未知错误
+     */
+    SYSTEM_UNKNOWN_ERROR(-1, "系统未知错误"),
+
+    // =========== 客户端异常 =========
+
+    /**
+     * 客户端HTTP请求方法错误
+     * org.springframework.web.HttpRequestMethodNotSupportedException
+     *
+     */
+    CLIENT_HTTP_METHOD_ERROR(1001, "客户端HTTP请求方法错误"),
+
+    /**
+     * 客户端request body参数错误
+     * 主要是未能通过Hibernate Validator校验的异常处理
+     *
+     * org.springframework.web.bind.MethodArgumentNotValidException
+     *
+     */
+    CLIENT_REQUEST_BODY_ERROR(1002, "客户端请求体参数校验不通过"),
+
+    /**
+     * 客户端@RequestBody请求体JSON格式错误或字段类型错误
+     * org.springframework.http.converter.HttpMessageNotReadableException
+     *
+     * eg:
+     * 1、参数类型不对:{"test":"abc"}，本身类型是Long
+     * 2、{"test":}  test属性没有给值
+     */
+    CLIENT_REQUEST_BODY_FORMAT_ERROR(1003, "客户端请求体JSON格式错误或字段类型不匹配"),
+
+    /**
+     * 客户端@PathVariable参数错误
+     * 一般是类型不匹配，比如本来是Long类型，客户端却给了一个无法转换成Long字符串
+     * org.springframework.validation.BindException
+     *
+     */
+    CLIENT_PATH_VARIABLE_ERROR(1004, "客户端URL中的参数类型错误"),
+
+    /**
+     * 客户端@RequestParam参数错误
+     * javax.validation.ConstraintViolationException
+     *
+     */
+    CLIENT_REQUEST_PARAM_ERROR(1005, "客户端请求参数错误"),
+
+
+    // =========== 服务端异常 =========
+
+    /**
+     * 通用的业务方法入参检查错误
+     * java.lang.IllegalArgumentException
+     *
+     */
+    SERVER_ILLEGAL_ARGUMENT_ERROR(2001, "业务方法参数检查不通过"),
+    ;
+
+    private int code;
+
+    private String msg;
+
+    CommonErrorCodeEnum(Integer code, String msg){
+        this.code = code;
+        this.msg = msg;
+    }
+
+    @Override
+    public int getCode() {
+        return 0;
+    }
+
+    @Override
+    public String getMsg() {
+        return null;
+    }
+}

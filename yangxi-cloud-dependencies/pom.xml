@@ -32,6 +32,8 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<yangxi.cloud.version>1.0.0-SNAPSHOT</yangxi.cloud.version>
 	</properties>
 
 	<dependencyManagement>
@@ -162,68 +164,68 @@
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-framework-core</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-framework-web</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<!-- yangxi-cloud starter依赖 -->
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-web</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-dubbo</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-nacos</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-openfeign</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-rocketmq</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-seata</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-sentinel</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-skywalking</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
 				<artifactId>yangxi-cloud-starter-zipkin</artifactId>
-				<version>1.0.0-SNAPSHOT</version>
+				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 		</dependencies>

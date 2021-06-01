@@ -19,10 +19,10 @@ public class BizException extends RuntimeException {
         this.msg = msg;
     }
 
-    public BizException(BaseBizCodeEnum bizCodeEnum) {
-        super(bizCodeEnum.getMsg());
-        this.code = bizCodeEnum.getCode();
-        this.msg = bizCodeEnum.getMsg();
+    public BizException(BaseErrorCodeEnum baseErrorCodeEnum) {
+        super(baseErrorCodeEnum.getMsg());
+        this.code = baseErrorCodeEnum.getCode();
+        this.msg = baseErrorCodeEnum.getMsg();
     }
 
     public BizException(int code, String msg, Object... arguments) {
@@ -31,10 +31,10 @@ public class BizException extends RuntimeException {
         this.msg = MessageFormat.format(msg, arguments);
     }
 
-    public BizException(BaseBizCodeEnum bizCodeEnum, Object... arguments) {
-        super(MessageFormat.format(bizCodeEnum.getMsg(), arguments));
-        this.code = bizCodeEnum.getCode();
-        this.msg = MessageFormat.format(bizCodeEnum.getMsg(), arguments);
+    public BizException(BaseErrorCodeEnum baseErrorCodeEnum, Object... arguments) {
+        super(MessageFormat.format(baseErrorCodeEnum.getMsg(), arguments));
+        this.code = baseErrorCodeEnum.getCode();
+        this.msg = MessageFormat.format(baseErrorCodeEnum.getMsg(), arguments);
     }
 
     public Integer getCode() {

@@ -12,13 +12,13 @@
 基础父工程，对标spring-boot-parent
 
 # yangxi-cloud-framework
-yang-boot框架自定义扩展的核心类
+yang-cloud框架自定义扩展的核心类
 
 # yangxi-cloud-starters
-yang-boot框架自定义扩展的starter工程
+yang-cloud框架自定义扩展的starter工程
 
 # yangxi-cloud-sample
-yang-boot框架使用示例工程
+yang-cloud框架使用示例工程
 
 ## 从archetype中生成项目
 ### 第一步、先本地对yang-cloud进行构建部署（有nexus服务器的话，构建之后可以deploy到nexus私服）
