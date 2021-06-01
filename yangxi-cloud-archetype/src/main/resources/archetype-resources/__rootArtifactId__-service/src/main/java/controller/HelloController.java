@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * <P>
  * hello world示例
@@ -38,11 +40,16 @@ public class HelloController {
 
     @ApiOperation("测试直接返回一个JsonMap对象")
     @GetMapping("map")
-    public JsonMap<String, String> map(@RequestParam String name) {
+    public JsonMap<String, String> map(HttpServletRequest request, @RequestParam String name) {
+        String page = request.getParameter("page");
+        String size = request.getParameter("size");
+
         JsonMap<String, String> map = new JsonMap<>();
 
         map.put("a", "1");
         map.put("b", "2");
+        map.put("page", page);
+        map.put("size", size);
 
         return map;
     }

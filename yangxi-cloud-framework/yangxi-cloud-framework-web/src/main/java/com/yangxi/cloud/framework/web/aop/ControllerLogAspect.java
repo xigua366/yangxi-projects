@@ -1,6 +1,6 @@
 package com.yangxi.cloud.framework.web.aop;
 
-import com.yangxi.cloud.framework.utils.JsonUtil;
+import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -10,6 +10,12 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StopWatch;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <P>
@@ -38,8 +44,16 @@ public class ControllerLogAspect {
         String declaringTypeName = signature.getDeclaringTypeName();
         String methodName = signature.getName();
 
+        Object[] args = point.getArgs();
+        List<Object> argList = null;
+        if(args != null && args.length > 0) {
+            argList = Arrays.stream(args).filter(arg -> (!(arg instanceof HttpServletRequest) && !(arg instanceof HttpServletResponse)))
+                    .collect(Collectors.toList());
+        }
+
+
         log.info("统一日志打印(start): {}.{}() ↓ ↓ ↓ ↓ ↓,请求参数:\n{}",
-                declaringTypeName, methodName, argsToString(point.getArgs()));
+                declaringTypeName, methodName, argsToString(argList));
 
         Object response = null;
 
@@ -58,7 +72,10 @@ public class ControllerLogAspect {
 
     private String argsToString(Object object) {
         try {
-            return JsonUtil.object2Json(object);
+            if(object != null) {
+                return JSON.toJSONString(object);
+            }
+            return null;
         } catch (Exception e) {
             log.warn("LogAspect转换参数异常：", e);
         }
