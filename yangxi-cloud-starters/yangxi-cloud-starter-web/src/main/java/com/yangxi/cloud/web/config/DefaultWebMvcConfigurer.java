@@ -15,6 +15,7 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        // 拦截的内容，可以开放一个配置出去，让应用方自行配置
         registry.addInterceptor(new DefaultWebMvcHandlerInterceptor()).addPathPatterns("/**");
     }
 }

@@ -31,7 +31,7 @@ public enum CommonErrorCodeEnum implements BaseErrorCodeEnum {
      * org.springframework.web.bind.MethodArgumentNotValidException
      *
      */
-    CLIENT_REQUEST_BODY_ERROR(1002, "客户端请求体参数校验不通过"),
+    CLIENT_REQUEST_BODY_CHECK_ERROR(1002, "客户端请求体参数校验不通过"),
 
     /**
      * 客户端@RequestBody请求体JSON格式错误或字段类型错误
@@ -52,11 +52,20 @@ public enum CommonErrorCodeEnum implements BaseErrorCodeEnum {
     CLIENT_PATH_VARIABLE_ERROR(1004, "客户端URL中的参数类型错误"),
 
     /**
-     * 客户端@RequestParam参数错误
+     * 客户端@RequestParam参数校验不通过
+     * 主要是未能通过Hibernate Validator校验的异常处理
      * javax.validation.ConstraintViolationException
      *
      */
-    CLIENT_REQUEST_PARAM_ERROR(1005, "客户端请求参数错误"),
+    CLIENT_REQUEST_PARAM_CHECK_ERROR(1005, "客户端请求参数校验不通过"),
+
+    /**
+     * 客户端@RequestParam参数必填
+     * 入参中的@RequestParam注解设置了必填，但是客户端没有给值
+     * javax.validation.ConstraintViolationException
+     *
+     */
+    CLIENT_REQUEST_PARAM_REQUIRED_ERROR(1006, "客户端请求缺少必填的参数"),
 
 
     // =========== 服务端异常 =========

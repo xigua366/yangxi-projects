@@ -4,12 +4,14 @@ import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.exception.BizException;
 import com.yangxi.cloud.framework.exception.CommonErrorCodeEnum;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -23,6 +25,7 @@ import java.util.List;
  * @author yangxi
  **/
 @Slf4j
+@Configuration
 @RestControllerAdvice
 @Order
 public class DefaultGlobalBizExceptionHandler {
@@ -57,7 +60,7 @@ public class DefaultGlobalBizExceptionHandler {
     public JsonData<Object> handle(MethodArgumentNotValidException e) {
         log.error("[客户端请求体参数校验不通过]", e);
         String errorMsg = this.handle(e.getBindingResult().getFieldErrors());
-        return JsonData.buildError(CommonErrorCodeEnum.CLIENT_REQUEST_BODY_ERROR.getCode(), errorMsg);
+        return JsonData.buildError(CommonErrorCodeEnum.CLIENT_REQUEST_BODY_CHECK_ERROR.getCode(), errorMsg);
     }
 
     private String handle(List<FieldError> fieldErrors) {
@@ -105,22 +108,42 @@ public class DefaultGlobalBizExceptionHandler {
     }
 
     /**
-     * 1005 客户端请求参数错误
+     * 1005 客户端请求参数校验不通过
      * @param e
      * @return
      */
     @ExceptionHandler(value = ConstraintViolationException.class)
     public JsonData<Object> handle(ConstraintViolationException e) {
-        log.error("[客户端请求参数错误]", e);
+        log.error("[客户端请求参数校验不通过]", e);
         Iterator<ConstraintViolation<?>> it = e.getConstraintViolations().iterator();
         String errorMsg = null;
         if (it.hasNext()) {
             errorMsg = it.next().getMessageTemplate();
         }
         if(errorMsg != null && !"".equals(errorMsg)) {
-            return JsonData.buildError(CommonErrorCodeEnum.CLIENT_REQUEST_PARAM_ERROR.getCode(), errorMsg);
+            return JsonData.buildError(CommonErrorCodeEnum.CLIENT_REQUEST_PARAM_CHECK_ERROR.getCode(), errorMsg);
         }
-        return JsonData.buildError(CommonErrorCodeEnum.CLIENT_REQUEST_PARAM_ERROR);
+        return JsonData.buildError(CommonErrorCodeEnum.CLIENT_REQUEST_PARAM_CHECK_ERROR);
+    }
+
+
+    /**
+     * 1006 客户端请求缺少必填的参数
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(value = MissingServletRequestParameterException.class)
+    public JsonData<Object> handle(MissingServletRequestParameterException e) {
+        log.error("[客户端请求缺少必填的参数]", e);
+        String errorMsg = null;
+        String parameterName = e.getParameterName();
+        if (!"".equals(parameterName)) {
+            errorMsg = parameterName + "不能为空";
+        }
+        if(errorMsg != null) {
+            return JsonData.buildError(CommonErrorCodeEnum.CLIENT_REQUEST_PARAM_REQUIRED_ERROR.getCode(), errorMsg);
+        }
+        return JsonData.buildError(CommonErrorCodeEnum.CLIENT_REQUEST_PARAM_REQUIRED_ERROR);
     }
 
     // =========== 服务端异常 =========

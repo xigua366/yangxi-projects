@@ -1,3 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.yangxi.cloud.web.config.DefaultWebAutoConfiguration,\
-com.yangxi.cloud.web.config.DefaultWebMvcConfigurer
+com.yangxi.cloud.web.config.DefaultWebAutoConfiguration

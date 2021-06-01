@@ -6,6 +6,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
+ * http://localhost:8080/swagger-ui.html
+ *
  * @author yangxi
  * @version 1.0
  */
