@@ -17,9 +17,15 @@
         id, name, address, remark, created_time, updated_time
     </sql>
 
+    <resultMap id="PageSchoolResultMap" type="cn.xigua366.sample.domain.dto.PageSchoolDTO">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="address" property="address" />
+    </resultMap>
+
     <!-- 分页查询学校信息 -->
-    <select id="pageSchool2" resultType="cn.xigua366.sample.domain.dto.PageSchoolDTO">
-        select `id`, tenant_id, app_id, `name`, `address`
+    <select id="pageSchool2" resultMap="PageSchoolResultMap">
+        select `id`, `name`, `address`
         from t_school t1
         where t1.name like concat('%', #{name},'%')
         order by t1.created_time asc

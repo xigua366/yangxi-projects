@@ -19,6 +19,12 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface StudentMapper extends BaseMapper<StudentDO> {
 
-    IPage<PageStudentDTO> pageStudent(Page<?> pageInfo, @Param("name") String name);
+    /**
+     * 分页查询学生列表
+     * @param pageParam 分页参数
+     * @param name 学生姓名
+     * @return
+     */
+    IPage<PageStudentDTO> pageStudent(Page<?> pageParam, @Param("name") String name);
 
 }

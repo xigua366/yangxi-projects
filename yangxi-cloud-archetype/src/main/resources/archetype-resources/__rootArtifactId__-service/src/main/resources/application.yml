@@ -10,13 +10,16 @@ spring:
       # 服务注册与发现
       discovery:
         server-addr: 127.0.0.1:8848
+        # 默认不注册也不订阅
+        enabled: false
+        register-enabled: false
 
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: true
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: ${package}.domain.entity
+  type-aliases-package: cn.xigua366.sample.domain.entity
 
 # 默认关闭限流与熔断，有需要的时候再用
 feign:
@@ -24,3 +27,8 @@ feign:
     enabled: false
   hystrix:
     enabled: false
+
+yangxi:
+  cloud:
+    controller-log:
+      enable: false

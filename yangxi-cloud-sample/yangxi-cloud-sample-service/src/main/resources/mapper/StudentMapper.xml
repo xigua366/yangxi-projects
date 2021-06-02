@@ -19,10 +19,19 @@
         id, school_id, name, age, sex, remark, created_time, updated_time
     </sql>
 
+    <resultMap id="PageStudentResultMap" type="cn.xigua366.sample.domain.dto.PageStudentDTO">
+        <id column="id" property="id" />
+        <result column="age" property="age" />
+        <result column="sex" property="sex" />
+        <result column="school_name" property="schoolName" />
+    </resultMap>
+
     <!-- 分页查询学生信息 -->
-    <select id="pageStudent" resultType="cn.xigua366.sample.domain.dto.PageStudentDTO">
-        select t1.id, t1.tenant_id, t1.app_id, t1.`name`, t1.age, t1.sex, t2.`name` as schoolName
-        from t_student t1 left join t_school t2 on t1.school_id = t2.id
+    <select id="pageStudent" resultMap="PageStudentResultMap">
+        select
+               t1.id, t1.`name`, t1.age, t1.sex, t2.`name` as school_name
+        from t_student t1
+            left join t_school t2 on t1.school_id = t2.id
         where t1.name like concat('%', #{name},'%')
         order by t1.created_time asc
     </select>

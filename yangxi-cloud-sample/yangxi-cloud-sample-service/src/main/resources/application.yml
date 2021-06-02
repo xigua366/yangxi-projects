@@ -10,6 +10,9 @@ spring:
       # 服务注册与发现
       discovery:
         server-addr: 127.0.0.1:8848
+        # 默认不注册也不订阅
+        enabled: false
+        register-enabled: false
 
 mybatis-plus:
   configuration:
@@ -24,3 +27,8 @@ feign:
     enabled: false
   hystrix:
     enabled: false
+
+yangxi:
+  cloud:
+    controller-log:
+      enable: false
