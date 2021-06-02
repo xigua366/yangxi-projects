@@ -12,7 +12,7 @@ import java.text.MessageFormat;
  */
 public class BizException extends RuntimeException {
 
-    private int code = -1;
+    private int code;
 
     private String msg;
 

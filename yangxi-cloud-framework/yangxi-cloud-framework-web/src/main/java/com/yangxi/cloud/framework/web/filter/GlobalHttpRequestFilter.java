@@ -10,10 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
+ * <p>
+ * 通用全局过滤器
  * 拦截处理HttpServletRequest中的请求参数
+ * </p>
+ *
  * @author yangxi
+ * @version 1.0
  */
-public class HttpServletRequestFilter extends OncePerRequestFilter {
+public class GlobalHttpRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

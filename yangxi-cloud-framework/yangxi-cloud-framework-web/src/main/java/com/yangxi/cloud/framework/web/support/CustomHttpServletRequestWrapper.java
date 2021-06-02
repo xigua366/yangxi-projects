@@ -5,9 +5,12 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import java.util.*;
 
 /**
+ * <p>
  * 自定义HttpServletRequestWrapper组件
- * @author yangxi
+ * </p>
  *
+ * @author yangxi
+ * @version 1.0
  */
 public class CustomHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
