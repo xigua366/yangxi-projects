@@ -1,5 +1,6 @@
 package ${package}.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yangxi.cloud.framework.domain.dto.BaseDTO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,6 +24,7 @@ public class PageStudentVO extends BaseDTO {
     private Long id;
 
     @ApiModelProperty("学校名称")
+    @JsonProperty("school_name")
     private String schoolName;
 
     @ApiModelProperty("名称")

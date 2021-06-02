@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Api(tags = "学校管理模块")
 @RestController
-@RequestMapping("/api/v1/pri/school")
+@RequestMapping("/api/v1/school")
 public class SchoolController {
 
     @Autowired

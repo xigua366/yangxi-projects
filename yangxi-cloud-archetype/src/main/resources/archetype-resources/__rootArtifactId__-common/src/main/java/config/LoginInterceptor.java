@@ -1,6 +1,7 @@
 package ${package}.config;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
+import com.yangxi.cloud.framework.annotation.AuthIgnore;
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.web.utils.CommonUtil;
 import ${package}.domain.LoginUser;
@@ -9,6 +10,7 @@ import ${package}.utils.JWTUtil;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +36,16 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+        AuthIgnore authIgnore = null;
+        if(handler instanceof HandlerMethod) {
+            authIgnore = ((HandlerMethod) handler).getMethodAnnotation(AuthIgnore.class);
+        }
+
+        //如果有@AuthIgnore注解，则也不验证token
+        if(authIgnore != null) {
+            return true;
+        }
 
         String accessToken = request.getHeader("token");
         if(accessToken == null) {

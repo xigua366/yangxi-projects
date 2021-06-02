@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 @Aspect
 public class ControllerLogAspect {
 
-    @Pointcut("within(@org.springframework.stereotype.Controller *) || within(@org.springframework.web.bind.annotation.RestController *)")
+    @Pointcut("within(@org.springframework.web.bind.annotation.RestController *)")
     public void logAop() {
     }
 

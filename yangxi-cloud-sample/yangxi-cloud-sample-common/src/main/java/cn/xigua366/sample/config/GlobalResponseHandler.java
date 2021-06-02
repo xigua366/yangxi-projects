@@ -1,4 +1,4 @@
-package com.yangxi.cloud.framework.web.config;
+package cn.xigua366.sample.config;
 
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.core.JsonMap;
@@ -22,7 +22,7 @@ import java.util.Objects;
 
 /**
  * <p>
- * 默认的Spring mvc全局响应结果处理器
+ * Spring mvc全局响应结果处理器
  * </p>
  *
  * @author yangxi
@@ -30,9 +30,9 @@ import java.util.Objects;
  */
 @Slf4j
 @Configuration
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = "cn.xigua366.sample")
 @Order
-public class DefaultGlobalResponseHandler implements ResponseBodyAdvice<Object> {
+public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     /**
      * 是否支持advice功能

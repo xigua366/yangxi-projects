@@ -1,5 +1,6 @@
 package cn.xigua366.sample.domain.vo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yangxi.cloud.framework.domain.vo.BaseVO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,6 +24,7 @@ public class StudentVO extends BaseVO {
     private Long id;
 
     @ApiModelProperty("学校名称")
+    @JsonProperty("school_name")
     private String schoolName;
 
     @ApiModelProperty("名称")

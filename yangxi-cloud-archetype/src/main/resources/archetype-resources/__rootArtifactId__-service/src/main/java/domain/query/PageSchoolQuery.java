@@ -1,5 +1,6 @@
 package ${package}.domain.query;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yangxi.cloud.framework.domain.query.BasePageQuery;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -23,5 +24,6 @@ public class PageSchoolQuery extends BasePageQuery {
      * 根据学校名称模糊查询
      */
     @ApiModelProperty("学校名称")
+    @JsonProperty("school_name")
     private String schoolName;
 }

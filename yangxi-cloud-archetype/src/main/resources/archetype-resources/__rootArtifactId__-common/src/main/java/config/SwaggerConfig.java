@@ -43,7 +43,7 @@ public class SwaggerConfig {
                 .enable(true)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.yangxi"))
+                .apis(RequestHandlerSelectors.basePackage("${package}"))
                 //正则匹配请求路径，并分配到当前项目组
                 .paths(PathSelectors.ant("/api/**"))
                 .build()
@@ -64,7 +64,7 @@ public class SwaggerConfig {
                 .enable(true)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.yangxi"))
+                .apis(RequestHandlerSelectors.basePackage("${package}"))
                 //正则匹配请求路径，并分配到当前项目组
                 .paths(PathSelectors.ant("/rpc/**"))
                 .build()

@@ -22,10 +22,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
-        // 登录拦截器只拦截/api/v1/pri 这样的路径，像swagger-ui、/api/v1/pub 等路径是不会去拦截的
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/api/*/pri/**")
-                //不拦截哪些路径   斜杠一定要加
-                .excludePathPatterns("/api/v1/pri/user/login","/api/v1/pri/user/register");
+
+        registry.addInterceptor(new LoginInterceptor())
+                // 登录拦截器只拦截/api/v1/user 这样的路径，像/rpc/*/**、/swagger-ui等路径是不会去拦截的
+                .addPathPatterns("/api/*/**")
+                //不拦截像/api/v1/pub/product 这种含有/pub的路径
+                .excludePathPatterns("/api/*/pub/**");
     }
 
 }

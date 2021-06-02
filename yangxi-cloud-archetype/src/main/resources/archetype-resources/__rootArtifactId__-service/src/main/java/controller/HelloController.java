@@ -1,8 +1,8 @@
 package ${package}.controller;
 
+import ${package}.domain.vo.StudentVO;
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.core.JsonMap;
-import ${package}.domain.entity.UserDO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,11 +55,12 @@ public class HelloController {
     }
 
     @ApiOperation("测试返回一个普通的POJO对象")
-    @GetMapping("user")
-    public UserDO user(String name) {
-        UserDO userDO = new UserDO();
-        userDO.setId(1L);
-        userDO.setName("zhangsan");
-        return userDO;
+    @GetMapping("student")
+    public StudentVO user(String name) {
+        StudentVO studentVO = new StudentVO();
+        studentVO.setId(1L);
+        studentVO.setSchoolName("广州一中");
+        studentVO.setName("zhangsan");
+        return studentVO;
     }
 }

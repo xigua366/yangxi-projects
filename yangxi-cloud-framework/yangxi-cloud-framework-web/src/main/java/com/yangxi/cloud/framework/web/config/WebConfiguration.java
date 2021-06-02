@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Import;
  * @version 1.0
  */
 @Configuration
-@Import(value = {ControllerLogAspect.class, DefaultGlobalExceptionHandler.class, DefaultGlobalResponseHandler.class})
+@Import(value = {ControllerLogAspect.class, DefaultGlobalExceptionHandler.class})
 @EnableConfigurationProperties(WebProperties.class)
 public class WebConfiguration {
 

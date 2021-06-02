@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(tags = "学生管理模块")
 @RestController
-@RequestMapping("/api/v1/pri/student")
+@RequestMapping("/api/v1/student")
 public class StudentController {
 
     @Autowired

@@ -1,5 +1,6 @@
 package ${package}.controller;
 
+import com.yangxi.cloud.framework.annotation.AuthIgnore;
 import com.yangxi.cloud.framework.core.JsonData;
 import ${package}.domain.request.LoginRequest;
 import ${package}.domain.request.RegisterRequest;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/api/v1/pri/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
 
     @Autowired
@@ -30,6 +31,7 @@ public class UserController {
      * @param registerRequest
      * @return
      */
+    @AuthIgnore
     @PostMapping("register")
     public JsonData<Boolean> register(@RequestBody RegisterRequest registerRequest) {
         boolean result = userService.register(registerRequest);
@@ -41,6 +43,7 @@ public class UserController {
      * @param loginRequest
      * @return
      */
+    @AuthIgnore
     @PostMapping("login")
     public JsonData<String> login(@RequestBody LoginRequest loginRequest) {
         String token = userService.login(loginRequest);
