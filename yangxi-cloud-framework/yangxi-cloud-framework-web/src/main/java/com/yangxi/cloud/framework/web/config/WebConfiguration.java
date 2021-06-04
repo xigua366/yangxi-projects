@@ -1,5 +1,6 @@
 package com.yangxi.cloud.framework.web.config;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.yangxi.cloud.framework.constants.CoreConstant;
 import com.yangxi.cloud.framework.web.aop.ControllerLogAspect;
 import com.yangxi.cloud.framework.web.filter.GlobalHttpRequestFilter;
@@ -38,11 +39,14 @@ public class WebConfiguration {
     }
 
     @Bean
-    public Jackson2ObjectMapperBuilderCustomizer jacksonObjectMapperCustomization() {
+    public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
         return jacksonObjectMapperBuilder -> {
             jacksonObjectMapperBuilder.timeZone(ZoneId.systemDefault().getId());
             jacksonObjectMapperBuilder.simpleDateFormat(CoreConstant.DATE_TIME_FORMAT_PATTERN);
-            jacksonObjectMapperBuilder.failOnUnknownProperties(false);
+//            jacksonObjectMapperBuilder.failOnUnknownProperties(false);
+            jacksonObjectMapperBuilder.featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+//            jacksonObjectMapperBuilder.featuresToDisable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+//            jacksonObjectMapperBuilder.featuresToEnable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         };
     }
 

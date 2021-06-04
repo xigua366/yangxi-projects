@@ -16,7 +16,6 @@ import java.util.Date;
  * @author yangxi
  * @version 1.0
  */
-@Slf4j
 public class StringToDateConverter implements Converter<String, Date> {
 
     @Override

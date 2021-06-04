@@ -56,9 +56,9 @@ public class UserVO extends BaseVO {
     private String mail;
 
     /**
-     * 生日
+     * 出生日期
      *
-     * 框架默认是转换成 yyyy-MM-dd HH:mm:ss格式
+     * 框架默认是 yyyy-MM-dd HH:mm:ss格式
      * 如果明确需要yyyy-MM-dd格式，那么需要自行给对应的字段添加@JsonFormat注解
      */
     @JsonFormat(pattern = "yyyy-MM-dd")

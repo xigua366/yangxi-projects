@@ -26,6 +26,7 @@ public class ObjectMapperImpl extends ObjectMapper {
 
 //#统一返回时间戳配置
 //        spring.jackson.serialization.write-dates-as-timestamps=true
+//        configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, true);
 
 //        #统一时区
 //        spring.jackson.time-zone=Asia/Shanghai
