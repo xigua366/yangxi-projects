@@ -1,16 +1,15 @@
 package ${package}.controller;
 
 import ${package}.domain.vo.StudentVO;
+import ${package}.domain.vo.UserVO;
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.core.JsonMap;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 /**
  * <P>
@@ -62,5 +61,32 @@ public class HelloController {
         studentVO.setSchoolName("广州一中");
         studentVO.setName("zhangsan");
         return studentVO;
+    }
+
+    @ApiOperation("测试获取日期类型字段值")
+    @GetMapping("getDate")
+    public UserVO getDate(String name) {
+        UserVO userVO = new UserVO();
+        userVO.setId(1L);
+        userVO.setName("zhangsan");
+        userVO.setPhone("13826434456");
+        userVO.setMail("xigua366@qq.com");
+        userVO.setCreatedTime(new Date());
+        userVO.setUpdatedTime(new Date());
+        return userVO;
+    }
+
+    @ApiOperation("测试提交日期类型字段值")
+    @PutMapping("putDate")
+    public UserVO putDate(@RequestBody UserVO userVO) {
+        System.out.println(userVO);
+        return userVO;
+    }
+
+    @ApiOperation("测试提交日期类型字段值")
+    @PostMapping("postDate")
+    public UserVO postDate(UserVO userVO) {
+        System.out.println(userVO);
+        return userVO;
     }
 }

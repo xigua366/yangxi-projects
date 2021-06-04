@@ -19,9 +19,4 @@ import org.springframework.context.annotation.Import;
 @Import(value = {WebConfiguration.class, DefaultWebMvcConfigurer.class})
 public class DefaultWebAutoConfiguration {
 
-    @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapperImpl();
-    }
-
 }
