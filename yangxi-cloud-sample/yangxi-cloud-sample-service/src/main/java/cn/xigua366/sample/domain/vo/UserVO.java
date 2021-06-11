@@ -3,7 +3,9 @@ package cn.xigua366.sample.domain.vo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.yangxi.cloud.framework.domain.vo.BaseVO;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -62,14 +64,21 @@ public class UserVO extends BaseVO {
      * 如果明确需要yyyy-MM-dd格式，那么需要自行给对应的字段添加@JsonFormat注解
      */
     @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     private String tenantId;
 
     private String remark;
 
-    private Date createdTime;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 
-    private Date updatedTime;
+    // 对于非 json request body方式提交日期入参的话，还是最好每个日期参数都自行添加一下@DateTimeFormat注解是最好的方式。
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createdTime;
+
+//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime updatedTime;
 
 }

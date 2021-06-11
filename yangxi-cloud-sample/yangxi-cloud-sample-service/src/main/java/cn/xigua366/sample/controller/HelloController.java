@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -71,8 +72,8 @@ public class HelloController {
         userVO.setName("zhangsan");
         userVO.setPhone("13826434456");
         userVO.setMail("xigua366@qq.com");
-        userVO.setCreatedTime(new Date());
-        userVO.setUpdatedTime(new Date());
+        userVO.setCreatedTime(LocalDateTime.now());
+        userVO.setUpdatedTime(LocalDateTime.now());
         return userVO;
     }
 
