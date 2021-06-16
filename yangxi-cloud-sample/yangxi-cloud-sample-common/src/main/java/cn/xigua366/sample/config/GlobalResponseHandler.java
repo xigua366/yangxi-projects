@@ -3,8 +3,7 @@ package cn.xigua366.sample.config;
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.core.JsonMap;
 import com.yangxi.cloud.framework.utils.JsonUtil;
-import com.yangxi.cloud.framework.web.utils.CommonUtil;
-import com.yangxi.cloud.framework.web.utils.ServletUtils;
+import com.yangxi.cloud.framework.web.utils.ServletUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
@@ -14,12 +13,9 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.Objects;
 
 /**
  * <p>
@@ -49,6 +45,11 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
         // 然后把swagger ui的静态资源地址都在WebMvcConfigurer组件的addResourceHandlers()方法中配置出来
         // 那么是不是这个GlobalResponseHandler组件就可以不用配置basePackages = "cn.xigua366.sample"了？
         // 然后就可以把GlobalResponseHandler组件挪动封装到yangxi-cloud-framework-web模块中去了呢？
+
+
+        // 如果返回方法上没有@ResponseBody注解，应该不能拦截的 TODO
+        // 如果是返回的ResponseEntity，也不能拦截的 TODO
+
         return true;
     }
 
@@ -72,9 +73,9 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
         if(body instanceof String) {
             try {
-                HttpServletResponse httpServletResponse = ServletUtils.getResponse();
+                HttpServletResponse httpServletResponse = ServletUtil.getResponse();
                 if(httpServletResponse != null) {
-                    CommonUtil.sendJsonMessage(httpServletResponse, JsonData.buildSuccess(body));
+                    ServletUtil.sendJsonMessage(httpServletResponse, JsonData.buildSuccess(body));
                     return null;
                 }
             } catch(Exception e) {

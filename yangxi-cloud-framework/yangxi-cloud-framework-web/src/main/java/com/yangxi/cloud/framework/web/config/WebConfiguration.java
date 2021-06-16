@@ -8,7 +8,6 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
-import com.fasterxml.jackson.module.paramnames.ParameterNamesModule;
 import com.yangxi.cloud.framework.constants.CoreConstant;
 import com.yangxi.cloud.framework.web.aop.ControllerLogAspect;
 import com.yangxi.cloud.framework.web.filter.GlobalHttpRequestFilter;
@@ -65,7 +64,8 @@ public class WebConfiguration {
             javaTimeModule.addDeserializer(LocalDateTime.class,new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern(CoreConstant.DATE_TIME_FORMAT_PATTERN)));
             javaTimeModule.addDeserializer(LocalDate.class,new LocalDateDeserializer(DateTimeFormatter.ofPattern(CoreConstant.DATE_FORMAT_PATTERN)));
             javaTimeModule.addDeserializer(LocalTime.class,new LocalTimeDeserializer(DateTimeFormatter.ofPattern(CoreConstant.TIME_FORMAT_PATTERN)));
-            jacksonObjectMapperBuilder.modules(javaTimeModule, new ParameterNamesModule());
+            jacksonObjectMapperBuilder.modules(javaTimeModule);
+//            jacksonObjectMapperBuilder.modules(javaTimeModule, new ParameterNamesModule());
         };
     }
 

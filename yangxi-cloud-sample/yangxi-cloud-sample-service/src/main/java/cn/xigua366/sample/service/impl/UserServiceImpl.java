@@ -6,7 +6,7 @@ import cn.xigua366.sample.exception.BizErrorCodeEnum;
 import cn.xigua366.sample.utils.JWTUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yangxi.cloud.framework.exception.BizException;
-import com.yangxi.cloud.framework.web.utils.CommonUtil;
+import com.yangxi.cloud.framework.utils.CommonUtil;
 import cn.xigua366.sample.domain.entity.UserDO;
 import cn.xigua366.sample.domain.request.LoginRequest;
 import cn.xigua366.sample.domain.request.RegisterRequest;

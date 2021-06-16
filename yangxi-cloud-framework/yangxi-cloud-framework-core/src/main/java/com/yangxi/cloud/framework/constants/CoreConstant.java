@@ -11,6 +11,11 @@ package com.yangxi.cloud.framework.constants;
 public class CoreConstant {
 
     /**
+     * 默认时区
+     */
+    public static final String DEFAULT_TIME_ZONE = "";
+
+    /**
      * 统一的日期格式
      */
     public static final String DATE_FORMAT_PATTERN = "yyyy-MM-dd";

@@ -42,7 +42,8 @@ public class ObjectMapperImpl extends ObjectMapper {
 
 //        #统一时区
 //        spring.jackson.time-zone=Asia/Shanghai
-        setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault().getId()));
+//        setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault().getId()));
+        setTimeZone(TimeZone.getTimeZone(CoreConstant.DEFAULT_TIME_ZONE));
 
         // 设置日期格式化
         setDateFormat(new SimpleDateFormat(CoreConstant.DATE_TIME_FORMAT_PATTERN));
@@ -56,6 +57,6 @@ public class ObjectMapperImpl extends ObjectMapper {
         javaTimeModule.addDeserializer(LocalDate.class,new LocalDateDeserializer(DateTimeFormatter.ofPattern(CoreConstant.DATE_FORMAT_PATTERN)));
         javaTimeModule.addDeserializer(LocalTime.class,new LocalTimeDeserializer(DateTimeFormatter.ofPattern(CoreConstant.TIME_FORMAT_PATTERN)));
         registerModule(javaTimeModule);
-        registerModules(javaTimeModule, new ParameterNamesModule());
+//        registerModules(javaTimeModule, new ParameterNamesModule());
     }
 }
