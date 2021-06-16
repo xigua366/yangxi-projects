@@ -71,14 +71,16 @@ public class UserVO extends BaseVO {
 
     private String remark;
 
-//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-
+    /**
+     * 创建时间
+     */
+    // 框架添加了默认的json日期字段格式为yyyy-MM-dd HH:mm:ss，对于json request body 或者 json response body的时候，格式为yyyy-MM-dd HH:mm:ss的日期字段可以不加@JsonFormat注解
+    // @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     // 对于非 json request body方式提交日期入参的话，还是最好每个日期参数都自行添加一下@DateTimeFormat注解是最好的方式。
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createdTime;
+    private Date createdTime;
 
-//    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updatedTime;
 
 }

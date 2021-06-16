@@ -72,15 +72,15 @@ public class HelloController {
         userVO.setName("zhangsan");
         userVO.setPhone("13826434456");
         userVO.setMail("xigua366@qq.com");
-        userVO.setCreatedTime(LocalDateTime.now());
+        userVO.setBirthday(new Date());
+        userVO.setCreatedTime(new Date());
         userVO.setUpdatedTime(LocalDateTime.now());
         return userVO;
     }
 
     @ApiOperation("测试提交日期类型字段值")
     @PutMapping("putDate")
-    public UserVO putDate(@RequestBody UserVO userVO) {
-        System.out.println(userVO);
+    public UserVO putDate(HttpServletRequest request, @RequestBody UserVO userVO) {
         return userVO;
     }
 
