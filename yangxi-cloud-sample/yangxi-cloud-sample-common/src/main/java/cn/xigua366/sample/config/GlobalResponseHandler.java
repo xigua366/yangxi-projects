@@ -4,6 +4,7 @@ import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.core.JsonMap;
 import com.yangxi.cloud.framework.utils.JsonUtil;
 import com.yangxi.cloud.framework.web.utils.CommonUtil;
+import com.yangxi.cloud.framework.web.utils.ServletUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
@@ -43,6 +44,11 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
      */
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
+        // TODO
+        // 这里要是想办法把swagger ui的 url接口地址都过滤出来，
+        // 然后把swagger ui的静态资源地址都在WebMvcConfigurer组件的addResourceHandlers()方法中配置出来
+        // 那么是不是这个GlobalResponseHandler组件就可以不用配置basePackages = "cn.xigua366.sample"了？
+        // 然后就可以把GlobalResponseHandler组件挪动封装到yangxi-cloud-framework-web模块中去了呢？
         return true;
     }
 
@@ -66,7 +72,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
         if(body instanceof String) {
             try {
-                HttpServletResponse httpServletResponse = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getResponse();
+                HttpServletResponse httpServletResponse = ServletUtils.getResponse();
                 if(httpServletResponse != null) {
                     CommonUtil.sendJsonMessage(httpServletResponse, JsonData.buildSuccess(body));
                     return null;
