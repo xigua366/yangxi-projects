@@ -1,10 +1,11 @@
-package ${package}.config;
+package com.yangxi.cloud.framework.web.config;
 
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.core.JsonMap;
 import com.yangxi.cloud.framework.utils.JsonUtil;
-import com.yangxi.cloud.framework.web.utils.CommonUtil;
+import com.yangxi.cloud.framework.web.utils.ServletUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
@@ -13,12 +14,11 @@ import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
+import springfox.documentation.swagger.web.ApiResourceController;
+import springfox.documentation.swagger2.web.Swagger2Controller;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.Objects;
 
 /**
  * <p>
@@ -30,9 +30,9 @@ import java.util.Objects;
  */
 @Slf4j
 @Configuration
-@RestControllerAdvice(basePackages = "${package}")
+@RestControllerAdvice
 @Order
-public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
+public class DefaultGlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
     /**
      * 是否支持advice功能
@@ -43,6 +43,20 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
      */
     @Override
     public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> converterType) {
+        Class<?> declaringClass = returnType.getDeclaringClass();
+
+        // 排除掉swagger ui的Controller
+        if(declaringClass.equals(ApiResourceController.class) || declaringClass.equals(Swagger2Controller.class)) {
+            return false;
+        }
+
+        // 排除掉Spring mvc内置的一些Controller
+        if(declaringClass.equals(BasicErrorController.class)) {
+            return false;
+        }
+
+        // more
+
         return true;
     }
 
@@ -59,16 +73,17 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
 
-
-        if(body instanceof JsonData) {
+        if(!selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON)) {
             return body;
         }
 
-        if(body instanceof String) {
+        if(body instanceof JsonData || body instanceof JsonMap) {
+            return body;
+        } else if(body instanceof String) {
             try {
-                HttpServletResponse httpServletResponse = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getResponse();
+                HttpServletResponse httpServletResponse = ServletUtil.getResponse();
                 if(httpServletResponse != null) {
-                    CommonUtil.sendJsonMessage(httpServletResponse, JsonData.buildSuccess(body));
+                    ServletUtil.sendJsonMessage(httpServletResponse, JsonData.buildSuccess(body));
                     return null;
                 }
             } catch(Exception e) {
@@ -76,11 +91,6 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
             }
 
             return JsonUtil.object2Json(JsonData.buildSuccess(body));
-        }
-
-        // 如果是返回JsonMap对象，则不进行JsonData封装
-        if(body instanceof JsonMap) {
-            return body;
         }
 
         return JsonData.buildSuccess(body);

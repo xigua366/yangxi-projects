@@ -2,7 +2,7 @@ package ${package}.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.yangxi.cloud.framework.exception.BizException;
-import com.yangxi.cloud.framework.web.utils.CommonUtil;
+
 import ${package}.dao.UserDAO;
 import ${package}.domain.LoginUser;
 import ${package}.domain.entity.UserDO;
@@ -11,6 +11,7 @@ import ${package}.domain.request.RegisterRequest;
 import ${package}.exception.BizErrorCodeEnum;
 import ${package}.service.UserService;
 import ${package}.utils.JWTUtil;
+import com.yangxi.cloud.framework.utils.CommonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.Md5Crypt;
 import org.springframework.beans.factory.annotation.Autowired;

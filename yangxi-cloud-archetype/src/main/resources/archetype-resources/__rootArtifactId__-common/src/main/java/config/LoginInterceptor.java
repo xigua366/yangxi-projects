@@ -3,10 +3,10 @@ package ${package}.config;
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.yangxi.cloud.framework.annotation.AuthIgnore;
 import com.yangxi.cloud.framework.core.JsonData;
-import com.yangxi.cloud.framework.web.utils.CommonUtil;
 import ${package}.domain.LoginUser;
 import ${package}.exception.BizErrorCodeEnum;
 import ${package}.utils.JWTUtil;
+import com.yangxi.cloud.framework.web.utils.ServletUtil;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -57,7 +57,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             Claims claims = JWTUtil.checkJWT(accessToken);
             if(claims == null){
                 //未登录
-                CommonUtil.sendJsonMessage(response, JsonData.buildError(BizErrorCodeEnum.ACCOUNT_UNLOGIN));
+                ServletUtil.sendJsonMessage(response, JsonData.buildError(BizErrorCodeEnum.ACCOUNT_UNLOGIN));
                 return false;
             }
 
@@ -78,7 +78,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        CommonUtil.sendJsonMessage(response, JsonData.buildError(BizErrorCodeEnum.ACCOUNT_UNLOGIN));
+        ServletUtil.sendJsonMessage(response, JsonData.buildError(BizErrorCodeEnum.ACCOUNT_UNLOGIN));
         return false;
     }
 

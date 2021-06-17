@@ -34,7 +34,7 @@ import java.time.format.DateTimeFormatter;
  * @version 1.0
  */
 @Configuration
-@Import(value = {ControllerLogAspect.class, DefaultGlobalExceptionHandler.class})
+@Import(value = {ControllerLogAspect.class, DefaultGlobalExceptionHandler.class, DefaultGlobalResponseHandler.class})
 @EnableConfigurationProperties(WebProperties.class)
 public class WebConfiguration {
 
