@@ -9,7 +9,6 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import com.yangxi.cloud.framework.constants.CoreConstant;
-import com.yangxi.cloud.framework.web.aop.ControllerLogAspect;
 import com.yangxi.cloud.framework.web.filter.GlobalHttpRequestFilter;
 import com.yangxi.cloud.framework.web.properties.WebProperties;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
@@ -34,7 +33,7 @@ import java.time.format.DateTimeFormatter;
  * @version 1.0
  */
 @Configuration
-@Import(value = {ControllerLogAspect.class, DefaultGlobalExceptionHandler.class, DefaultGlobalResponseHandler.class})
+@Import(value = {DefaultGlobalExceptionHandler.class, DefaultGlobalResponseHandler.class})
 @EnableConfigurationProperties(WebProperties.class)
 public class WebConfiguration {
 

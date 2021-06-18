@@ -27,8 +27,3 @@ feign:
     enabled: false
   hystrix:
     enabled: false
-
-yangxi:
-  cloud:
-    controller-log:
-      enable: false
