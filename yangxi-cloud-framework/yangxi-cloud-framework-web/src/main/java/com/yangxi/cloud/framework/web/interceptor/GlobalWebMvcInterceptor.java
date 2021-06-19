@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
- * 默认的Spring mvc拦截器组件
+ * 全局的Spring mvc拦截器组件
  * </p>
  *
  * @author yangxi
  * @version 1.0
  */
-public class DefaultWebMvcHandlerInterceptor implements HandlerInterceptor {
+public class GlobalWebMvcInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

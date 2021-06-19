@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 @RestControllerAdvice
 @Order
-public class DefaultGlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
+public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     /**
      * 是否支持advice功能

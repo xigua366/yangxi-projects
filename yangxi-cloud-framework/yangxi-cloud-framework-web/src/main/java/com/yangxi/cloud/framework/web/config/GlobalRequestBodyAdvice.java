@@ -19,7 +19,7 @@ import java.lang.reflect.Type;
 @Slf4j
 @RestControllerAdvice
 @Order
-public class DefaultGlobalRequestBodyAdvice extends RequestBodyAdviceAdapter {
+public class GlobalRequestBodyAdvice extends RequestBodyAdviceAdapter {
 
     @Override
     public boolean supports(MethodParameter methodParameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {

@@ -6,17 +6,17 @@ import java.util.*;
 
 /**
  * <p>
- * 自定义HttpServletRequestWrapper组件
+ * 自定义的HttpServletRequestWrapper组件
  * </p>
  *
  * @author yangxi
  * @version 1.0
  */
-public class CustomHttpServletRequestWrapper extends HttpServletRequestWrapper {
+public class DefaultHttpServletRequestWrapper extends HttpServletRequestWrapper {
 
     private final Map<String, String[]> params = new LinkedHashMap<>();
 
-    public CustomHttpServletRequestWrapper(HttpServletRequest request) {
+    public DefaultHttpServletRequestWrapper(HttpServletRequest request) {
         super(request);
         this.params.putAll(request.getParameterMap());
     }

@@ -1,6 +1,6 @@
 package com.yangxi.cloud.framework.web.filter;
 
-import com.yangxi.cloud.framework.web.support.CustomHttpServletRequestWrapper;
+import com.yangxi.cloud.framework.web.support.DefaultHttpServletRequestWrapper;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -23,7 +23,7 @@ public class GlobalHttpRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        CustomHttpServletRequestWrapper requestWrapper = new CustomHttpServletRequestWrapper(request);
+        DefaultHttpServletRequestWrapper requestWrapper = new DefaultHttpServletRequestWrapper(request);
 
         // 给page & size设置默认值
         String page = requestWrapper.getParameter("page");

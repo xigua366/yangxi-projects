@@ -30,7 +30,7 @@ import java.util.List;
 @Slf4j
 @RestControllerAdvice
 @Order
-public class DefaultGlobalExceptionHandler {
+public class GlobalExceptionHandler {
 
     // =========== 系统级别未知异常 =========
 

@@ -1,6 +1,6 @@
 package com.yangxi.cloud.web.config;
 
-import com.yangxi.cloud.framework.web.interceptor.DefaultWebMvcHandlerInterceptor;
+import com.yangxi.cloud.framework.web.interceptor.GlobalWebMvcInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -23,7 +23,7 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         // TODO 拦截的内容，可以开放一个配置出去，让应用方自行配置
-        registry.addInterceptor(new DefaultWebMvcHandlerInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(new GlobalWebMvcInterceptor()).addPathPatterns("/**");
     }
 
     /**
