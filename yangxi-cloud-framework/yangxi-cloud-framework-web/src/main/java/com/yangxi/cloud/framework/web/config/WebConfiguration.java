@@ -33,7 +33,7 @@ import java.time.format.DateTimeFormatter;
  * @version 1.0
  */
 @Configuration
-@Import(value = {DefaultGlobalExceptionConfig.class, DefaultGlobalRequestBodyConfig.class, DefaultGlobalResponseBodyConfig.class})
+@Import(value = {DefaultGlobalExceptionHandler.class, DefaultGlobalRequestBodyAdvice.class, DefaultGlobalResponseBodyAdvice.class})
 @EnableConfigurationProperties(WebProperties.class)
 public class WebConfiguration {
 

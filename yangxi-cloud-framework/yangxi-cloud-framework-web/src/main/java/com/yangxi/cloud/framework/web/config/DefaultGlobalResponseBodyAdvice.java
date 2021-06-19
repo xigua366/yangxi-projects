@@ -6,7 +6,6 @@ import com.yangxi.cloud.framework.utils.JsonUtil;
 import com.yangxi.cloud.framework.web.utils.ServletUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.MediaType;
@@ -22,17 +21,16 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
- * 默认的Controller全局响应结果处理增强配置
+ * 默认的Controller全局响应结果处理增强组件
  * </p>
  *
  * @author yangxi
  * @version 1.0
  */
 @Slf4j
-@Configuration
 @RestControllerAdvice
 @Order
-public class DefaultGlobalResponseBodyConfig implements ResponseBodyAdvice<Object> {
+public class DefaultGlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     /**
      * 是否支持advice功能

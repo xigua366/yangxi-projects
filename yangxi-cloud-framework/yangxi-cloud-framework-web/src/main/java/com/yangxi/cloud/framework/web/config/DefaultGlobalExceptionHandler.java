@@ -4,7 +4,6 @@ import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.exception.BizException;
 import com.yangxi.cloud.framework.exception.CommonErrorCodeEnum;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindException;
@@ -22,17 +21,16 @@ import java.util.List;
 
 /**
  * <p>
- * 默认的Controller全局异常处理增强配置
+ * 默认的Controller全局异常处理增强组件
  * </p>
  *
  * @author yangxi
  * @version 1.0
  **/
 @Slf4j
-@Configuration
 @RestControllerAdvice
 @Order
-public class DefaultGlobalExceptionConfig {
+public class DefaultGlobalExceptionHandler {
 
     // =========== 系统级别未知异常 =========
 
