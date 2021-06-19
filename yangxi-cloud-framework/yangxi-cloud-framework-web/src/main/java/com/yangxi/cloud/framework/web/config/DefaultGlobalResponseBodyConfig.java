@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>
- * Spring mvc全局响应结果处理器
+ * 默认的Controller全局响应结果处理增强配置
  * </p>
  *
  * @author yangxi
@@ -32,7 +32,7 @@ import javax.servlet.http.HttpServletResponse;
 @Configuration
 @RestControllerAdvice
 @Order
-public class DefaultGlobalResponseHandler implements ResponseBodyAdvice<Object> {
+public class DefaultGlobalResponseBodyConfig implements ResponseBodyAdvice<Object> {
 
     /**
      * 是否支持advice功能

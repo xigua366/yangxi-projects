@@ -22,7 +22,7 @@ import java.util.List;
 
 /**
  * <p>
- * 默认的Spring mvc全局异常处理器
+ * 默认的Controller全局异常处理增强配置
  * </p>
  *
  * @author yangxi
@@ -32,7 +32,7 @@ import java.util.List;
 @Configuration
 @RestControllerAdvice
 @Order
-public class DefaultGlobalExceptionHandler {
+public class DefaultGlobalExceptionConfig {
 
     // =========== 系统级别未知异常 =========
 

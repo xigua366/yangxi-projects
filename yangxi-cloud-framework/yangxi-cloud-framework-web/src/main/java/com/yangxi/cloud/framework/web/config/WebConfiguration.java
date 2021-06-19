@@ -33,7 +33,7 @@ import java.time.format.DateTimeFormatter;
  * @version 1.0
  */
 @Configuration
-@Import(value = {DefaultGlobalExceptionHandler.class, DefaultGlobalResponseHandler.class})
+@Import(value = {DefaultGlobalExceptionConfig.class, DefaultGlobalRequestBodyConfig.class, DefaultGlobalResponseBodyConfig.class})
 @EnableConfigurationProperties(WebProperties.class)
 public class WebConfiguration {
 
@@ -52,10 +52,12 @@ public class WebConfiguration {
     public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
         return jacksonObjectMapperBuilder -> {
             jacksonObjectMapperBuilder.timeZone(ZoneId.systemDefault().getId());
+
+            // java.util.Date默认格式配置
             jacksonObjectMapperBuilder.simpleDateFormat(CoreConstant.DATE_TIME_FORMAT_PATTERN);
             jacksonObjectMapperBuilder.featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
-            // Java8 日期相关
+            // Java8相关日期类默认格式配置
             JavaTimeModule javaTimeModule = new JavaTimeModule();
             javaTimeModule.addSerializer(LocalDateTime.class,new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(CoreConstant.DATE_TIME_FORMAT_PATTERN)));
             javaTimeModule.addSerializer(LocalDate.class,new LocalDateSerializer(DateTimeFormatter.ofPattern(CoreConstant.DATE_FORMAT_PATTERN)));
@@ -64,7 +66,6 @@ public class WebConfiguration {
             javaTimeModule.addDeserializer(LocalDate.class,new LocalDateDeserializer(DateTimeFormatter.ofPattern(CoreConstant.DATE_FORMAT_PATTERN)));
             javaTimeModule.addDeserializer(LocalTime.class,new LocalTimeDeserializer(DateTimeFormatter.ofPattern(CoreConstant.TIME_FORMAT_PATTERN)));
             jacksonObjectMapperBuilder.modules(javaTimeModule);
-//            jacksonObjectMapperBuilder.modules(javaTimeModule, new ParameterNamesModule());
         };
     }
 
