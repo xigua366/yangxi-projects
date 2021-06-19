@@ -5,6 +5,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 /**
@@ -75,16 +77,17 @@ public abstract class AbstractObject {
 				// 如果判断某个字段是List类型的
 				if (!Collection.class.isAssignableFrom(thisField.getType())) {
 					Class<?> sourceFieldClazz = thisField.getType();
-					if (sourceFieldClazz == String.class || sourceFieldClazz == Long.class
-							|| "long".equals(sourceFieldClazz.toString()) || thisField.getType() == Integer.class
-							|| "int".equals(sourceFieldClazz.toString()) || sourceFieldClazz == Short.class
-							|| "short".equals(sourceFieldClazz.toString()) || sourceFieldClazz == Double.class
-							|| "double".equals(sourceFieldClazz.toString()) || sourceFieldClazz == Float.class
-							|| "float".equals(sourceFieldClazz.toString()) || sourceFieldClazz == BigDecimal.class
+					if (sourceFieldClazz == String.class || sourceFieldClazz == BigDecimal.class
+							|| thisField.getType() == Integer.class || "int".equals(sourceFieldClazz.toString())
+							|| sourceFieldClazz == Long.class || "long".equals(sourceFieldClazz.toString())
+							|| sourceFieldClazz == Short.class || "short".equals(sourceFieldClazz.toString())
+							|| sourceFieldClazz == Double.class || "double".equals(sourceFieldClazz.toString())
+							|| sourceFieldClazz == Float.class || "float".equals(sourceFieldClazz.toString())
 							|| sourceFieldClazz == Boolean.class || "boolean".equals(sourceFieldClazz.toString())
-							|| sourceFieldClazz == Date.class || sourceFieldClazz == Character.class
-							|| "char".equals(sourceFieldClazz.toString()) || sourceFieldClazz == Byte.class
-							|| "byte".equals(sourceFieldClazz.toString()) || sourceFieldClazz == java.sql.Date.class) {
+							|| sourceFieldClazz == Character.class || "char".equals(sourceFieldClazz.toString())
+							|| sourceFieldClazz == Byte.class || "byte".equals(sourceFieldClazz.toString())
+							|| sourceFieldClazz == Date.class || sourceFieldClazz == java.sql.Date.class
+							|| sourceFieldClazz == LocalDateTime.class || sourceFieldClazz == LocalDate.class) {
 						continue;
 					}
 					// 判断某个字段是否AbstractObject类型的
