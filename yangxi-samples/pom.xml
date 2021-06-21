@@ -19,6 +19,7 @@
 	</developers>
 
 	<modules>
+		<module>yangxi-boot-sample</module>
 		<module>yangxi-cloud-sample</module>
 	</modules>
 

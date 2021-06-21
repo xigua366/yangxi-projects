@@ -1,0 +1,58 @@
+package cn.xigua366.sample.domain.entity;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.IdType;
+import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+ * <p>
+ * 角色与权限的关联关系表
+ * </p>
+ *
+ * @author xi.yang
+ * @since 2021-06-21
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+@TableName("sys_role_acl_ref")
+public class SysRoleAclRefDO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * 主键ID
+     */
+      @TableId(value = "id", type = IdType.AUTO)
+    private Long id;
+
+    /**
+     * 租户ID
+     */
+    private String tenantId;
+
+    /**
+     * 角色ID
+     */
+    private Long roleId;
+
+    /**
+     * 权限ID
+     */
+    private Integer aclId;
+
+    /**
+     * 创建时间
+     */
+    private Date createTime;
+
+    /**
+     * 更新时间
+     */
+    private Date updateTime;
+
+
+}

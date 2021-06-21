@@ -33,6 +33,7 @@ public class MyBatisPlusGenerator {
                 .setDateType(DateType.ONLY_DATE)
                 // 设置生成的service接口的名字的首字母是否为I，默认Service是以I开头的
                 .setServiceName("%sDAO")
+                .setServiceImplName("%sDAOImpl")
                 //实体类结尾名称
                 .setEntityName("%sDO")
                 //生成基本的resultMap
@@ -46,7 +47,7 @@ public class MyBatisPlusGenerator {
         // 设置数据库类型
         dsConfig.setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUrl("jdbc:mysql://127.0.0.1:3306/yangxi_boot_sample?useUnicode=true&characterEncoding=utf-8&useSSL=false")
+                .setUrl("jdbc:mysql://127.0.0.1:3306/yangxi_boot_sample_admin?useUnicode=true&characterEncoding=utf-8&useSSL=false")
                 .setUsername("root")
                 .setPassword("root");
         //3. 策略配置globalConfiguration中
@@ -62,13 +63,15 @@ public class MyBatisPlusGenerator {
                 .setRestControllerStyle(false)
                 // 生成的表, 支持多表一起生成，以数组形式填写
                 // 两个方式，直接写，或者使用命令行输入
-                .setInclude("t_user", "t_school", "t_student"); // 可以写多个，用逗号隔开
+                .setInclude("sys_acl", "sys_acl_module", "sys_org", "sys_org_role_ref", "sys_org_user_ref",
+                        "sys_role", "sys_role_acl_ref", "sys_user", "sys_user_acl_ref", "sys_user_role_ref"); // 可以写多个，用逗号隔开
                 //.setInclude(scanner("表名，多个英文逗号分割").split(","));
         //4. 包名策略配置
         PackageConfig pkConfig = new PackageConfig();
-        pkConfig.setParent("com.yangxi.cloud.sample")
+        pkConfig.setParent("com.yangxi.boot.sample")
                 .setMapper("mapper")
                 .setService("dao")
+                .setServiceImpl("dap.impl")
                 .setController("controller")
                 .setEntity("domain.entity")
                 .setXml("mapper");

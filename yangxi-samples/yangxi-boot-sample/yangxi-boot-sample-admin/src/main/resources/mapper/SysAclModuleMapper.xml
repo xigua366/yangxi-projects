@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xigua366.sample.mapper.SysAclModuleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="SysAclModuleDO">
+        <id column="id" property="id" />
+        <result column="tenant_id" property="tenantId" />
+        <result column="acl_module_code" property="aclModuleCode" />
+        <result column="acl_module_name" property="aclModuleName" />
+        <result column="is_enabled" property="isEnabled" />
+        <result column="order" property="order" />
+        <result column="remark" property="remark" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, tenant_id, acl_module_code, acl_module_name, is_enabled, order, remark, create_time, update_time
+    </sql>
+
+</mapper>
