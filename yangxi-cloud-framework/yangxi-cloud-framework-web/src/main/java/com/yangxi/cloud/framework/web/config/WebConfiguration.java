@@ -1,5 +1,6 @@
 package com.yangxi.cloud.framework.web.config;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
@@ -51,11 +52,18 @@ public class WebConfiguration {
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jackson2ObjectMapperBuilderCustomizer() {
         return jacksonObjectMapperBuilder -> {
-            jacksonObjectMapperBuilder.timeZone(ZoneId.systemDefault().getId());
+            // 设置默认时区
+            // jacksonObjectMapperBuilder.timeZone(ZoneId.systemDefault().getId());
+            jacksonObjectMapperBuilder.timeZone(CoreConstant.DEFAULT_TIME_ZONE);
+
+            // 序列化的时候属性值为NULL，也进行序列化
+            jacksonObjectMapperBuilder.serializationInclusion(JsonInclude.Include.ALWAYS);
+            // 反序列化的时候如果多了其他属性，也不抛出异常
+            jacksonObjectMapperBuilder.featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 
             // java.util.Date默认格式配置
             jacksonObjectMapperBuilder.simpleDateFormat(CoreConstant.DATE_TIME_FORMAT_PATTERN);
-            jacksonObjectMapperBuilder.featuresToDisable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
 
             // Java8相关日期类默认格式配置
             JavaTimeModule javaTimeModule = new JavaTimeModule();
