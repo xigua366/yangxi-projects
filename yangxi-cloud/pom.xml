@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.yangxi.cloud</groupId>
-	<artifactId>yangxi-cloud-generator</artifactId>
+	<artifactId>yangxi-cloud</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -19,7 +19,9 @@
 	</developers>
 
 	<modules>
-		<module>yangxi-cloud-archetype</module>
+		<module>yangxi-cloud-dependencies</module>
+		<module>yangxi-cloud-parent</module>
+		<module>yangxi-cloud-starters</module>
 	</modules>
 
 	<properties>

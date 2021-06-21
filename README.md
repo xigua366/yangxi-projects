@@ -1,26 +1,35 @@
-# yangxi-cloud
+# yangxi-framework
 基于spring boot + mybatis plus + spring cloud alibaba技术栈的微服务快速开发框架
 
 
-# yangxi-cloud-archetype
-一个maven的archetype插件服务，该插件帮助生成基于spring boot框架的骨架工程，快速开始项目搭建
+## 工程结构介绍
+```
+yangxi
+  yangxi-boot                          // 用于单体项目
+    yangxi-boot-denpendencies            // 基础依赖定义，对标spring-boot-denpendencies
+    yangxi-boot-parent                   // 基础父工程，对标spring-boot-parent
+    yangxi-boot-starters                 // 单体项目开发，自定义扩展的starter
+  yangxi-cloud                         // 用于微服务项目
+    yangxi-cloud-denpendencies           // 对yangxi-boot-denpendencies的扩展，用于微服务项目
+    yangxi-cloud-parent                  // 对yangxi-boot-parent的扩展，用于微服务项目
+    yangxi-cloud-starters                // 微服务项目开发，自定义扩展的starter
+  yangxi-framework                     // 框架核心模块
+    yangxi-framework-core                // 框架核心包代码
+    yangxi-framework-web                 // 框架对于web工程的一些扩展代码
+  yangxi-generator                     // 代码生成器
+  yangxi-samples                       // 示例代码工程
+    yangxi-boot-sample                   // 单体项目示例工程
+      yangxi-boot-sample-admin              // 单体项目-后台运营管理服务
+      yangxi-boot-sample-service            // 单体项目-前台业务服务
+    yangxi-cloud-sample                  // 微服务项目示例工程
+      yangxi-cloud-sample-member            // 微服务项目-会员服务
+      yangxi-cloud-sample-order             // 微服务项目-订单服务
+      yangxi-cloud-sample-commodity         // 微服务-商品服务
+      yangxi-cloud-sample-pay               // 微服务-支付服务
+```
 
-# yangxi-cloud-denpendencies
-基础依赖定义，对标spring-boot-denpendencies
 
-# yangxi-cloud-parent
-基础父工程，对标spring-boot-parent
-
-# yangxi-cloud-framework
-yang-cloud框架自定义扩展的核心类
-
-# yangxi-cloud-starters
-yang-cloud框架自定义扩展的starter工程
-
-# yangxi-cloud-sample
-yang-cloud框架使用示例工程
-
-## 从archetype中生成项目
+## 入门使用介绍
 ### 第一步、先本地对yang-cloud进行构建部署（有nexus服务器的话，构建之后可以deploy到nexus私服）
 clone代码之后，在本地对yangxi-cloud进行构建：mvn clean install -Dmaven.test.skip=true
 

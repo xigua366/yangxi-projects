@@ -150,7 +150,7 @@
 		<!-- yangxi-cloud starter依赖 -->
 		<dependency>
 			<groupId>com.yangxi.cloud</groupId>
-			<artifactId>yangxi-cloud-starter-web</artifactId>
+			<artifactId>yangxi-boot-starter-web</artifactId>
 		</dependency>
 
 		<dependency>

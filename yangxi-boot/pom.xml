@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.yangxi.cloud</groupId>
-	<artifactId>yangxi</artifactId>
+	<artifactId>yangxi-boot</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -18,6 +18,12 @@
 		</developer>
 	</developers>
 
+	<modules>
+		<module>yangxi-boot-dependencies</module>
+		<module>yangxi-boot-parent</module>
+		<module>yangxi-boot-starters</module>
+	</modules>
+
 	<properties>
 		<java.version>1.8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -25,14 +31,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
-
-	<modules>
-		<module>yangxi-boot</module>
-		<module>yangxi-cloud</module>
-		<module>yangxi-framework</module>
-		<module>yangxi-generator</module>
-		<module>yangxi-samples</module>
-	</modules>
 
 	<repositories>
 		<!--阿里云主仓库，代理了maven central和jcenter仓库 -->

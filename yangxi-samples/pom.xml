@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.yangxi.cloud</groupId>
-	<artifactId>yangxi-cloud-project</artifactId>
+	<artifactId>yangxi-samples</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -19,8 +19,7 @@
 	</developers>
 
 	<modules>
-		<module>yangxi-cloud-dependencies</module>
-		<module>yangxi-cloud-parent</module>
+		<module>yangxi-cloud-sample</module>
 	</modules>
 
 	<properties>

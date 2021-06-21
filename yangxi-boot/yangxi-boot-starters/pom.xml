@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.yangxi.cloud</groupId>
-	<artifactId>yangxi</artifactId>
+	<artifactId>yangxi-boot-starters</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
@@ -24,15 +24,58 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<yangxi.cloud.version>1.1.0-SNAPSHOT</yangxi.cloud.version>
 	</properties>
 
 	<modules>
-		<module>yangxi-boot</module>
-		<module>yangxi-cloud</module>
-		<module>yangxi-framework</module>
-		<module>yangxi-generator</module>
-		<module>yangxi-samples</module>
+		<module>yangxi-boot-starter-web</module>
+		<module>yangxi-boot-starter-rocketmq</module>
 	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+		</dependency>
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>2.3.2.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- rocketmq -->
+			<dependency>
+				<groupId>org.apache.rocketmq</groupId>
+				<artifactId>rocketmq-spring-boot-starter</artifactId>
+				<version>2.1.1</version>
+			</dependency>
+
+			<!-- yangxi-framework -->
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-framework-core</artifactId>
+				<version>${yangxi.cloud.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.yangxi.cloud</groupId>
+				<artifactId>yangxi-framework-web</artifactId>
+				<version>${yangxi.cloud.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<repositories>
 		<!--阿里云主仓库，代理了maven central和jcenter仓库 -->
@@ -76,5 +119,4 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
 </project>
