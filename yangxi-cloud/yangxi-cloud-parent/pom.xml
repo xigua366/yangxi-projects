@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.yangxi.cloud</groupId>
+		<groupId>com.yangxi</groupId>
 		<artifactId>yangxi-cloud-dependencies</artifactId>
 		<version>1.1.0-SNAPSHOT</version>
 		<relativePath>../yangxi-cloud-dependencies</relativePath>
@@ -136,31 +136,31 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 		</dependency>
 
-		<!-- yangxi-cloud framework依赖 -->
+		<!-- yangxi-framework依赖 -->
 		<dependency>
-			<groupId>com.yangxi.cloud</groupId>
+			<groupId>com.yangxi</groupId>
 			<artifactId>yangxi-framework-core</artifactId>
 		</dependency>
 
 		<dependency>
-			<groupId>com.yangxi.cloud</groupId>
+			<groupId>com.yangxi</groupId>
 			<artifactId>yangxi-framework-web</artifactId>
+		</dependency>
+
+		<!-- yangxi-boot starter依赖 -->
+		<dependency>
+			<groupId>com.yangxi</groupId>
+			<artifactId>yangxi-boot-starter-web</artifactId>
 		</dependency>
 
 		<!-- yangxi-cloud starter依赖 -->
 		<dependency>
-			<groupId>com.yangxi.cloud</groupId>
-			<artifactId>yangxi-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>com.yangxi.cloud</groupId>
+			<groupId>com.yangxi</groupId>
 			<artifactId>yangxi-cloud-starter-nacos</artifactId>
 		</dependency>
 
-		<!-- 默认选用openfeign进行rpc通信 -->
 		<dependency>
-			<groupId>com.yangxi.cloud</groupId>
+			<groupId>com.yangxi</groupId>
 			<artifactId>yangxi-cloud-starter-openfeign</artifactId>
 		</dependency>
 

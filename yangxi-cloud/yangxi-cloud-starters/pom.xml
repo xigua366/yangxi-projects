@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.yangxi.cloud</groupId>
+	<groupId>com.yangxi</groupId>
 	<artifactId>yangxi-cloud-starters</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -25,7 +25,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<yangxi.cloud.version>1.1.0-SNAPSHOT</yangxi.cloud.version>
+		<yangxi.version>1.1.0-SNAPSHOT</yangxi.version>
 	</properties>
 
 	<modules>
@@ -91,18 +91,18 @@
 				<version>8.3.0</version>
 			</dependency>
 
-			<!-- yangxi-cloud-framework -->
+			<!-- yangxi-framework -->
 
 			<dependency>
-				<groupId>com.yangxi.cloud</groupId>
+				<groupId>com.yangxi</groupId>
 				<artifactId>yangxi-framework-core</artifactId>
-				<version>${yangxi.cloud.version}</version>
+				<version>${yangxi.version}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>com.yangxi.cloud</groupId>
+				<groupId>com.yangxi</groupId>
 				<artifactId>yangxi-framework-web</artifactId>
-				<version>${yangxi.cloud.version}</version>
+				<version>${yangxi.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

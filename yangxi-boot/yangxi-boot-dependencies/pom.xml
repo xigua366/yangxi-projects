@@ -12,7 +12,7 @@
 		<relativePath/>
 	</parent>
 
-	<groupId>com.yangxi.cloud</groupId>
+	<groupId>com.yangxi</groupId>
 	<artifactId>yangxi-boot-dependencies</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
@@ -33,7 +33,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<yangxi.cloud.version>1.1.0-SNAPSHOT</yangxi.cloud.version>
+		<yangxi.version>1.1.0-SNAPSHOT</yangxi.version>
 	</properties>
 
 	<dependencyManagement>
@@ -138,30 +138,30 @@
 				<version>2.9.2</version>
 			</dependency>
 
-			<!-- yangxi-cloud framework依赖 -->
+			<!-- yangxi-framework依赖 -->
 			<dependency>
-				<groupId>com.yangxi.cloud</groupId>
+				<groupId>com.yangxi</groupId>
 				<artifactId>yangxi-framework-core</artifactId>
-				<version>${yangxi.cloud.version}</version>
+				<version>${yangxi.version}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>com.yangxi.cloud</groupId>
+				<groupId>com.yangxi</groupId>
 				<artifactId>yangxi-framework-web</artifactId>
-				<version>${yangxi.cloud.version}</version>
+				<version>${yangxi.version}</version>
 			</dependency>
 
-			<!-- yangxi-cloud starter依赖 -->
+			<!-- yangxi-boot-starter依赖 -->
 			<dependency>
-				<groupId>com.yangxi.cloud</groupId>
+				<groupId>com.yangxi</groupId>
 				<artifactId>yangxi-boot-starter-web</artifactId>
-				<version>${yangxi.cloud.version}</version>
+				<version>${yangxi.version}</version>
 			</dependency>
 
 			<dependency>
-				<groupId>com.yangxi.cloud</groupId>
+				<groupId>com.yangxi</groupId>
 				<artifactId>yangxi-boot-starter-rocketmq</artifactId>
-				<version>${yangxi.cloud.version}</version>
+				<version>${yangxi.version}</version>
 			</dependency>
 
 		</dependencies>

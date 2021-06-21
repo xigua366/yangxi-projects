@@ -4,7 +4,7 @@
 
 ## 工程结构介绍
 ```
-yangxi
+yangxi-projects
   yangxi-boot                          // 用于单体项目
     yangxi-boot-denpendencies            // 基础依赖定义，对标spring-boot-denpendencies
     yangxi-boot-parent                   // 基础父工程，对标spring-boot-parent

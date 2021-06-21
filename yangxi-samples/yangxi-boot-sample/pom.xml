@@ -5,15 +5,21 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.yangxi</groupId>
-		<artifactId>yangxi-cloud-dependencies</artifactId>
+		<groupId>com.yangxi.cloud</groupId>
+		<artifactId>yangxi-boot-parent</artifactId>
 		<version>1.1.0-SNAPSHOT</version>
 		<relativePath/>
 	</parent>
 
-	<groupId>${groupId}</groupId>
-	<artifactId>${artifactId}</artifactId>
-	<version>${version}</version>
+	<groupId>com.yangxi.cloud.sample</groupId>
+	<artifactId>yangxi-boot-sample</artifactId>
+	<version>1.1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>yangxi-boot-sample-admin</module>
+		<module>yangxi-boot-sample-service</module>
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -22,38 +28,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>com.yangxi</groupId>
-			<artifactId>yangxi-cloud-framework-core</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>io.swagger</groupId>
-			<artifactId>swagger-annotations</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate.validator</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-openfeign-core</artifactId>
-		</dependency>
-	</dependencies>
 
 	<repositories>
 		<!--阿里云主仓库，代理了maven central和jcenter仓库 -->
