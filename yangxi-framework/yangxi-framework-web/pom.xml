@@ -6,13 +6,12 @@
 
 	<parent>
 		<groupId>com.yangxi.cloud</groupId>
-		<artifactId>yangxi-cloud-framework</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
-		<relativePath>../../yangxi-cloud-framework</relativePath>
+		<artifactId>yangxi-framework</artifactId>
+		<version>1.1.0-SNAPSHOT</version>
+		<relativePath>../../yangxi-framework</relativePath>
 	</parent>
 
-
-	<artifactId>yangxi-cloud-framework-web</artifactId>
+	<artifactId>yangxi-framework-web</artifactId>
 
 	<developers>
 		<developer>
@@ -26,7 +25,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.yangxi.cloud</groupId>
-			<artifactId>yangxi-cloud-framework-core</artifactId>
+			<artifactId>yangxi-framework-core</artifactId>
 		</dependency>
 
 		<dependency>

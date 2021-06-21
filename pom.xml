@@ -6,7 +6,7 @@
 
 	<groupId>com.yangxi.cloud</groupId>
 	<artifactId>yangxi-cloud</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<developers>
@@ -27,7 +27,7 @@
 	</properties>
 
 	<modules>
-		<module>yangxi-cloud-framework</module>
+		<module>yangxi-framework</module>
 		<module>yangxi-cloud-generator</module>
 		<module>yangxi-cloud-project</module>
 		<module>yangxi-cloud-sample</module>

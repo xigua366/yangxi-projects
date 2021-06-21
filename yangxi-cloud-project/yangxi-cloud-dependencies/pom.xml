@@ -14,7 +14,7 @@
 
 	<groupId>com.yangxi.cloud</groupId>
 	<artifactId>yangxi-cloud-dependencies</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<developers>
@@ -33,7 +33,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<yangxi.cloud.version>1.0.0-SNAPSHOT</yangxi.cloud.version>
+		<yangxi.cloud.version>1.1.0-SNAPSHOT</yangxi.cloud.version>
 	</properties>
 
 	<dependencyManagement>
@@ -163,13 +163,13 @@
 			<!-- yangxi-cloud framework依赖 -->
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
-				<artifactId>yangxi-cloud-framework-core</artifactId>
+				<artifactId>yangxi-framework-core</artifactId>
 				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>com.yangxi.cloud</groupId>
-				<artifactId>yangxi-cloud-framework-web</artifactId>
+				<artifactId>yangxi-framework-web</artifactId>
 				<version>${yangxi.cloud.version}</version>
 			</dependency>
 
