@@ -27,8 +27,8 @@ CREATE TABLE `t_school` (
                             `name` varchar(255) NOT NULL COMMENT '学校名称',
                             `address` varchar(255) NOT NULL COMMENT '学校地址',
                             `remark` varchar(255) DEFAULT NULL COMMENT '备注',
-                            `created_time` datetime NOT NULL COMMENT '创建时间',
-                            `updated_time` datetime NOT NULL COMMENT '修改时间',
+                            `create_time` datetime NOT NULL COMMENT '创建时间',
+                            `update_time` datetime NOT NULL COMMENT '修改时间',
                             PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
@@ -64,8 +64,8 @@ CREATE TABLE `t_student` (
                              `age` smallint(6) NOT NULL COMMENT '年龄',
                              `sex` tinyint(255) NOT NULL COMMENT '性别 1:男 2:女',
                              `remark` varchar(255) DEFAULT NULL COMMENT '备注',
-                             `created_time` datetime NOT NULL COMMENT '创建时间',
-                             `updated_time` datetime NOT NULL COMMENT '更新时间',
+                             `create_time` datetime NOT NULL COMMENT '创建时间',
+                             `update_time` datetime NOT NULL COMMENT '更新时间',
                              PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
@@ -95,8 +95,8 @@ CREATE TABLE `t_user` (
                           `mail` varchar(255) DEFAULT NULL COMMENT '邮箱',
                           `secret` varchar(255) DEFAULT NULL COMMENT '盐',
                           `remark` varchar(255) DEFAULT NULL COMMENT '备注',
-                          `created_time` datetime NOT NULL COMMENT '创建时间',
-                          `updated_time` datetime NOT NULL COMMENT '更新时间',
+                          `create_time` datetime NOT NULL COMMENT '创建时间',
+                          `update_time` datetime NOT NULL COMMENT '更新时间',
                           PRIMARY KEY (`id`),
                           UNIQUE KEY `uk_phone` (`phone`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;

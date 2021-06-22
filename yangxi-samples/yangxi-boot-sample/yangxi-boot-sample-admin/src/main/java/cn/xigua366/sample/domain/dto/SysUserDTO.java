@@ -20,11 +20,6 @@ public class SysUserDTO extends BaseDTO {
     private String username;
 
     /**
-     * 密码
-     */
-    private String password;
-
-    /**
      * 真实姓名
      */
     private String realName;
@@ -47,6 +42,6 @@ public class SysUserDTO extends BaseDTO {
     /**
      * 启用状态0:禁用  1:启用
      */
-    private Boolean isEnabled;
+    private Boolean enabled;
 
 }

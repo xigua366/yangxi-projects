@@ -8,8 +8,8 @@
         <result column="tenant_id" property="tenantId" />
         <result column="acl_module_code" property="aclModuleCode" />
         <result column="acl_module_name" property="aclModuleName" />
-        <result column="is_enabled" property="isEnabled" />
-        <result column="order" property="order" />
+        <result column="is_enabled" property="enabled" />
+        <result column="sort" property="sort" />
         <result column="remark" property="remark" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
@@ -17,7 +17,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, tenant_id, acl_module_code, acl_module_name, is_enabled, order, remark, create_time, update_time
+        id, tenant_id, acl_module_code, acl_module_name, is_enabled, sort, remark, create_time, update_time
     </sql>
 
 </mapper>

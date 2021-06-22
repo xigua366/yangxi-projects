@@ -1,12 +1,9 @@
 package cn.xigua366.sample.domain.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+
+import com.yangxi.cloud.framework.domain.entity.BaseEntity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * <p>
@@ -17,22 +14,10 @@ import lombok.EqualsAndHashCode;
  * @since 2021-06-21
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
 @TableName("sys_user_acl_ref")
-public class SysUserAclRefDO implements Serializable {
+public class SysUserAclRefDO extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
-
-    /**
-     * 主键ID
-     */
-      @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
-
-    /**
-     * 租户ID
-     */
-    private String tenantId;
 
     /**
      * 用户ID
@@ -43,16 +28,6 @@ public class SysUserAclRefDO implements Serializable {
      * 权限ID
      */
     private Integer aclId;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
 
 
 }

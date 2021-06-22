@@ -4,7 +4,7 @@ import cn.xigua366.sample.domain.dto.SysUserDTO;
 
 /**
  * <p>
- *
+ * 系统用户管理Service组件
  * </p>
  *
  * @author yangxi

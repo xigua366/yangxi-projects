@@ -9,8 +9,8 @@
         <result column="role_code" property="roleCode" />
         <result column="role_name" property="roleName" />
         <result column="role_desc" property="roleDesc" />
-        <result column="is_enabled" property="isEnabled" />
-        <result column="order" property="order" />
+        <result column="is_enabled" property="enabled" />
+        <result column="sort" property="sort" />
         <result column="remark" property="remark" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
@@ -18,7 +18,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, tenant_id, role_code, role_name, role_desc, is_enabled, order, remark, create_time, update_time
+        id, tenant_id, role_code, role_name, role_desc, is_enabled, sort, remark, create_time, update_time
     </sql>
 
 </mapper>

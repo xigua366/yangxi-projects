@@ -71,7 +71,7 @@ public class MyBatisPlusGenerator {
         pkConfig.setParent("com.yangxi.boot.sample")
                 .setMapper("mapper")
                 .setService("dao")
-                .setServiceImpl("dap.impl")
+                .setServiceImpl("dao.impl")
                 .setController("controller")
                 .setEntity("domain.entity")
                 .setXml("mapper");

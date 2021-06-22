@@ -1,13 +1,9 @@
 package cn.xigua366.sample.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 
 import com.yangxi.cloud.framework.domain.entity.BaseEntity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * <p>
@@ -18,22 +14,10 @@ import lombok.EqualsAndHashCode;
  * @since 2021-06-21
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
 @TableName("sys_user")
 public class SysUserDO extends BaseEntity {
 
     private static final long serialVersionUID = 1L;
-
-    /**
-     * 主键ID
-     */
-    @TableId(value = "id", type = IdType.AUTO)
-    private Long id;
-
-    /**
-     * 租户ID
-     */
-    private String tenantId;
 
     /**
      * 用户名/员工工号
@@ -43,7 +27,12 @@ public class SysUserDO extends BaseEntity {
     /**
      * 密码
      */
-    private String password;
+    private String pwd;
+
+    /**
+     * 盐
+     */
+    private String secret;
 
     /**
      * 真实姓名
@@ -68,22 +57,15 @@ public class SysUserDO extends BaseEntity {
     /**
      * 启用状态0:禁用  1:启用
      */
-    private Boolean isEnabled;
+    @TableField("is_enabled")
+    private Boolean enabled;
 
     /**
-     * 备注
+     * 删除状态0:未删除 1:已删除
      */
-    private String remark;
-
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-
-    /**
-     * 更新时间
-     */
-    private Date updateTime;
+    @TableLogic
+    @TableField("is_deleted")
+    private Boolean deleted;
 
 
 }

@@ -39,7 +39,7 @@ CREATE TABLE `sys_org` (
   `org_desc` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '组织描述',
   `org_type` tinyint(4) NOT NULL COMMENT '组织类型 1:真实的组织机构  2:虚拟团队',
   `org_level` int(11) NOT NULL DEFAULT '-1' COMMENT '组织等级：-1:无等级 1:一级部门 2:二级部门',
-  `order` int(11) NOT NULL DEFAULT '0' COMMENT '显示顺序',
+  `sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '显示顺序',
   `is_enabled` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '启用状态0:禁用  1:启用',
   `remark` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
@@ -52,16 +52,19 @@ CREATE TABLE `sys_user` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `tenant_id` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '租户ID',
   `username` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '用户名/员工工号',
-  `password` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '密码',
+  `pwd` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '密码',
+  `secret` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '盐',
   `real_name` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '真实姓名',
   `phone` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '手机号码',
   `tel` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '固定电话',
   `email` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '邮箱',
   `is_enabled` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '启用状态0:禁用  1:启用',
+  `is_deleted` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '删除状态0:未删除 1:已删除',
   `remark` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_username` (`username`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='用户表';
 
 -- 组织与用户的关联关系表
@@ -70,6 +73,7 @@ CREATE TABLE `sys_org_user_ref` (
   `tenant_id` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '租户ID',
   `org_id` bigint(20) NOT NULL COMMENT '组织ID',
   `user_id` int(11) NOT NULL COMMENT '用户ID',
+  `remark` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
@@ -83,7 +87,7 @@ CREATE TABLE `sys_role` (
   `role_name` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '角色名称',
   `role_desc` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '角色描述',
   `is_enabled` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '启用状态0:禁用  1:启用',
-  `order` int(11) NOT NULL DEFAULT '0' COMMENT '显示顺序',
+  `sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '显示顺序',
   `remark` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
@@ -96,6 +100,7 @@ CREATE TABLE `sys_org_role_ref` (
   `tenant_id` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '租户ID',
   `org_id` bigint(20) NOT NULL COMMENT '组织ID',
   `role_id` int(11) NOT NULL COMMENT '角色ID',
+  `remark` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
@@ -107,6 +112,7 @@ CREATE TABLE `sys_user_role_ref` (
   `tenant_id` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '租户ID',
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `role_id` int(11) NOT NULL COMMENT '角色ID',
+  `remark` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
@@ -119,7 +125,7 @@ CREATE TABLE `sys_acl_module` (
   `acl_module_code` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '权限模块code',
   `acl_module_name` varchar(32) COLLATE utf8mb4_bin NOT NULL COMMENT '权限模块名称',
   `is_enabled` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '启用状态0:禁用  1:启用',
-  `order` int(11) NOT NULL DEFAULT '0' COMMENT '显示顺序',
+  `sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '显示顺序',
   `remark` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
@@ -139,7 +145,7 @@ CREATE TABLE `sys_acl` (
   `http_method` varchar(10) COLLATE utf8mb4_bin NOT NULL COMMENT '请求method',
   `http_url` varchar(255) COLLATE utf8mb4_bin NOT NULL COMMENT '请求url',
   `is_enabled` tinyint(1) unsigned NOT NULL DEFAULT '1' COMMENT '启用状态0:禁用  1:启用',
-  `order` int(11) NOT NULL DEFAULT '0' COMMENT '显示顺序',
+  `sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '显示顺序',
   `remark` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
@@ -153,6 +159,7 @@ CREATE TABLE `sys_role_acl_ref` (
   `tenant_id` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '租户ID',
   `role_id` bigint(20) NOT NULL COMMENT '角色ID',
   `acl_id` int(11) NOT NULL COMMENT '权限ID',
+  `remark` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
@@ -164,9 +171,22 @@ CREATE TABLE `sys_user_acl_ref` (
   `tenant_id` varchar(32) COLLATE utf8mb4_bin DEFAULT NULL COMMENT '租户ID',
   `user_id` bigint(20) NOT NULL COMMENT '用户ID',
   `acl_id` int(11) NOT NULL COMMENT '权限ID',
+  `remark` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL COMMENT '备注',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `update_time` datetime NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin COMMENT='用户与权限的关联关系表';
+
+-- 系统枚举值信息表
+
+
+-- 系统参数信息表
+
+
+-- 系统访问日志信息表
+
+
+-- 用户黑名单表
+
 
 ```

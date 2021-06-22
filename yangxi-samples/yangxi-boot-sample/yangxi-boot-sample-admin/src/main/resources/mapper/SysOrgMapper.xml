@@ -12,8 +12,8 @@
         <result column="org_desc" property="orgDesc" />
         <result column="org_type" property="orgType" />
         <result column="org_level" property="orgLevel" />
-        <result column="order" property="order" />
-        <result column="is_enabled" property="isEnabled" />
+        <result column="sort" property="sort" />
+        <result column="is_enabled" property="enabled" />
         <result column="remark" property="remark" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
@@ -21,7 +21,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, tenant_id, parent_id, org_code, org_name, org_desc, org_type, org_level, order, is_enabled, remark, create_time, update_time
+        id, tenant_id, parent_id, org_code, org_name, org_desc, org_type, org_level, sort, is_enabled, remark, create_time, update_time
     </sql>
 
 </mapper>
