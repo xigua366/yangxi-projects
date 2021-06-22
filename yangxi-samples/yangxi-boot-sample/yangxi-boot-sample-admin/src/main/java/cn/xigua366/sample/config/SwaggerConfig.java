@@ -45,28 +45,7 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("cn.xigua366.sample"))
                 //正则匹配请求路径，并分配到当前项目组
-                .paths(PathSelectors.ant("/api/*/**"))
-                .build()
-                .globalOperationParameters(globalOperationParameters());
-    }
-
-    /**
-     * 服务间内部通信的rpc接口文档
-     *
-     * @return
-     */
-    @Bean
-    public Docket rpcApiDoc() {
-
-        return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("rpc")
-                .pathMapping("/")
-                .enable(true)
-                .apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("cn.xigua366.sample"))
-                //正则匹配请求路径，并分配到当前项目组
-                .paths(PathSelectors.ant("/rpc/*/**"))
+                .paths(PathSelectors.ant("/admin/*/**"))
                 .build()
                 .globalOperationParameters(globalOperationParameters());
     }
@@ -74,7 +53,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("yang-cloud基础开发平台")
+                .title("yang-boot基础开发平台")
                 .description("sample系统接口文档")
                 .contact(new Contact("yangxi", "https://www.xigua366.cn", "xigua366@163.com"))
                 .version("v1.0")

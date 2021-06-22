@@ -1,6 +1,6 @@
 package com.yangxi.cloud.rocketmq.client;
 
-import com.yangxi.cloud.framework.web.constants.TenantContextConstant;
+import com.yangxi.cloud.framework.web.constants.WebConstant;
 import com.yangxi.cloud.framework.web.context.TenantContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -27,7 +27,7 @@ public abstract class AbstractMessageListenerConcurrently implements MessageList
             Map<String, String> map = msgs.get(0).getProperties();
             String tenantId = "";
             if(map != null) {
-                tenantId = map.get(TenantContextConstant.TENANT_ID);
+                tenantId = map.get(WebConstant.TENANT_ID);
             }
             if(tenantId == null || "".equals(tenantId)) {
                 TenantContext.setTenantId(tenantId);

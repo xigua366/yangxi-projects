@@ -1,5 +1,6 @@
 package cn.xigua366.sample.domain.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.yangxi.cloud.framework.domain.dto.BaseDTO;
 import lombok.Data;
 
@@ -15,9 +16,19 @@ import lombok.Data;
 public class SysUserDTO extends BaseDTO {
 
     /**
+     * 主键ID
+     */
+    private Long id;
+    /**
      * 用户名/员工工号
      */
     private String username;
+
+    /**
+     * 密码
+     */
+    @JsonIgnore
+    private String pwd;
 
     /**
      * 真实姓名

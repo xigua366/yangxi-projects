@@ -8,10 +8,15 @@ package com.yangxi.cloud.framework.web.constants;
  * @author yangxi
  * @version 1.0
  */
-public class TenantContextConstant {
+public class WebConstant {
 
     /**
-     * 租户ID
+     * 租户ID参数名
      */
     public static final String TENANT_ID = "tenant_id";
+
+    /**
+     * 令牌参数名
+     */
+    public static final String TOKEN = "token";
 }

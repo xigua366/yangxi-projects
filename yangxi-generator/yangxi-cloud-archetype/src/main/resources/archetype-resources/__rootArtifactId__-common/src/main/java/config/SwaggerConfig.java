@@ -45,7 +45,7 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("${package}"))
                 //正则匹配请求路径，并分配到当前项目组
-                .paths(PathSelectors.ant("/api/**"))
+                .paths(PathSelectors.ant("/api/*/**"))
                 .build()
                 .globalOperationParameters(globalOperationParameters());
     }
@@ -66,7 +66,7 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("${package}"))
                 //正则匹配请求路径，并分配到当前项目组
-                .paths(PathSelectors.ant("/rpc/**"))
+                .paths(PathSelectors.ant("/rpc/*/**"))
                 .build()
                 .globalOperationParameters(globalOperationParameters());
     }

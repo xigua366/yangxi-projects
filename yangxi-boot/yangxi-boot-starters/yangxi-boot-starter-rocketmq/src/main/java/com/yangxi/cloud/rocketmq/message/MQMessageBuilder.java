@@ -1,6 +1,6 @@
 package com.yangxi.cloud.rocketmq.message;
 
-import com.yangxi.cloud.framework.web.constants.TenantContextConstant;
+import com.yangxi.cloud.framework.web.constants.WebConstant;
 import com.yangxi.cloud.framework.web.context.TenantContext;
 import org.springframework.lang.Nullable;
 import org.springframework.messaging.Message;
@@ -137,7 +137,7 @@ public final class MQMessageBuilder<T> {
 	public Message<T> build() {
 
 		// 添加统一的header信息
-		setHeaderIfAbsent(TenantContextConstant.TENANT_ID, TenantContext.getTenantId());
+		setHeaderIfAbsent(WebConstant.TENANT_ID, TenantContext.getTenantId());
 
 		if (this.providedMessage != null && !this.headerAccessor.isModified()) {
 			return this.providedMessage;

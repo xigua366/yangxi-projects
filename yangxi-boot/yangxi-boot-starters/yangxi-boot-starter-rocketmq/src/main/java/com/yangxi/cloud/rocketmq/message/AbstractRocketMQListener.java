@@ -1,6 +1,6 @@
 package com.yangxi.cloud.rocketmq.message;
 
-import com.yangxi.cloud.framework.web.constants.TenantContextConstant;
+import com.yangxi.cloud.framework.web.constants.WebConstant;
 import com.yangxi.cloud.framework.web.context.TenantContext;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.spring.core.RocketMQListener;
@@ -20,7 +20,7 @@ public abstract class AbstractRocketMQListener implements RocketMQListener<Messa
     public void onMessage(MessageExt message) {
         try {
             // mq消费方统一处理header信息
-            String tenantId = message.getProperty(TenantContextConstant.TENANT_ID);
+            String tenantId = message.getProperty(WebConstant.TENANT_ID);
             if(tenantId != null && !"".equals(tenantId)) {
                 TenantContext.setTenantId(tenantId);
             }

@@ -24,9 +24,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
 
         registry.addInterceptor(new LoginInterceptor())
-                // 登录拦截器只拦截/api/v1/user 这样的路径，像/rpc/*/**、/swagger-ui等路径是不会去拦截的
+                // 登录拦截器只拦截/api/v1/user 这样的路径，像/rpc/v1/demo、/swagger-ui等路径是不会去拦截的
                 .addPathPatterns("/api/*/**")
-                //不拦截像/api/v1/pub/product 这种含有/pub的路径
+                // 不拦截像/api/v1/pub/product这种含有/pub的路径
                 .excludePathPatterns("/api/*/pub/**");
     }
 

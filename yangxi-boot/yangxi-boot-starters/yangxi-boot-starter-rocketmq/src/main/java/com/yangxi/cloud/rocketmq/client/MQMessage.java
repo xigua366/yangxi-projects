@@ -1,6 +1,6 @@
 package com.yangxi.cloud.rocketmq.client;
 
-import com.yangxi.cloud.framework.web.constants.TenantContextConstant;
+import com.yangxi.cloud.framework.web.constants.WebConstant;
 import com.yangxi.cloud.framework.web.context.TenantContext;
 import org.apache.rocketmq.common.message.Message;
 
@@ -42,7 +42,7 @@ public class MQMessage extends Message {
     private void putTenantId() {
         String tenantId = TenantContext.getTenantId();
         if(tenantId != null && !"".equals(tenantId)) {
-            super.putUserProperty(TenantContextConstant.TENANT_ID, tenantId);
+            super.putUserProperty(WebConstant.TENANT_ID, tenantId);
         }
     }
 }

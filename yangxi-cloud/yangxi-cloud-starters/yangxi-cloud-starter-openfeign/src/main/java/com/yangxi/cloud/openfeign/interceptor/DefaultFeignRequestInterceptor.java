@@ -1,6 +1,6 @@
 package com.yangxi.cloud.openfeign.interceptor;
 
-import com.yangxi.cloud.framework.web.constants.TenantContextConstant;
+import com.yangxi.cloud.framework.web.constants.WebConstant;
 import com.yangxi.cloud.framework.web.context.TenantContext;
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
@@ -22,7 +22,7 @@ public class DefaultFeignRequestInterceptor implements RequestInterceptor {
         String tenantId = TenantContext.getTenantId();
 
         if(tenantId != null && !"".equals(tenantId)) {
-            template.header(TenantContextConstant.TENANT_ID, tenantId);
+            template.header(WebConstant.TENANT_ID, tenantId);
         }
     }
 

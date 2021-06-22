@@ -1,4 +1,4 @@
-package ${package}.exception;
+package cn.xigua366.sample.exception;
 
 import com.yangxi.cloud.framework.core.JsonData;
 import com.yangxi.cloud.framework.exception.BizException;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 @RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
-public class CustomBizExceptionHandler {
+public class MyBizExceptionHandler {
 
     /**
      * 系统自定义业务异常

@@ -1,6 +1,7 @@
 package com.yangxi.cloud.framework.web.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.yangxi.cloud.framework.core.ObjectMapperImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -92,7 +93,7 @@ public class ServletUtil {
      */
     public static void sendJsonMessage(HttpServletResponse response, Object obj) {
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapperImpl();
         response.setContentType("application/json; charset=utf-8");
 
         try (PrintWriter writer = response.getWriter()) {
