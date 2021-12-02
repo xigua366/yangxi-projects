@@ -13,7 +13,7 @@ import com.alibaba.ttl.TransmittableThreadLocal;
 public class LoginUserContext {
 
     /**
-     * 租户ID
+     * 登录用户信息
      */
     private static final ThreadLocal<String> LOGIN_USER = new TransmittableThreadLocal<>();
 

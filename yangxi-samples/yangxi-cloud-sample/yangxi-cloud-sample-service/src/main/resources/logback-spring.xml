@@ -30,13 +30,8 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <!-- 配置com.yangxi层的日志输出 -->
-    <logger name="cn.xigua366" level="INFO">
-        <appender-ref ref="ROLLING"/>
-    </logger>
-
-    <!-- 配置cn.xigua366层的日志输出 -->
-    <logger name="cn.xigua366" level="INFO">
+    <!-- 配置cn.xigua366.sample层的日志输出 -->
+    <logger name="cn.xigua366.sample" level="INFO">
         <appender-ref ref="ROLLING"/>
     </logger>
 

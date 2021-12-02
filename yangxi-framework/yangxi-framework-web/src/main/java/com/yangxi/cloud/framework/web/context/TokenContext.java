@@ -13,7 +13,7 @@ import com.alibaba.ttl.TransmittableThreadLocal;
 public class TokenContext {
 
     /**
-     * 租户ID
+     * 令牌
      */
     private static final ThreadLocal<String> TOKEN = new TransmittableThreadLocal<>();
 

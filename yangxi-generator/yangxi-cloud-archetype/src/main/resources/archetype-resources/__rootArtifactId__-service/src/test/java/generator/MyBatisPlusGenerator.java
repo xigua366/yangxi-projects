@@ -47,7 +47,7 @@ public class MyBatisPlusGenerator {
         // 设置数据库类型
         dsConfig.setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUrl("jdbc:mysql://127.0.0.1:3306/yangxi_boot_sample_admin?useUnicode=true&characterEncoding=utf-8&useSSL=false")
+                .setUrl("jdbc:mysql://127.0.0.1:3306/yangxi_boot_sample_admin?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai")
                 .setUsername("root")
                 .setPassword("root");
         //3. 策略配置globalConfiguration中

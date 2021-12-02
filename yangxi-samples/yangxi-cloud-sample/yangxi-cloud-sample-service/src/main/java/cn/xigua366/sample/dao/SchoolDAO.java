@@ -1,9 +1,12 @@
 package cn.xigua366.sample.dao;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
 import cn.xigua366.sample.domain.dto.PageSchoolDTO;
 import cn.xigua366.sample.domain.entity.SchoolDO;
+import cn.xigua366.sample.mapper.SchoolMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yangxi.cloud.framework.dao.BaseDAO;
+import org.springframework.stereotype.Repository;
 
 /**
  * <P>
@@ -13,7 +16,8 @@ import cn.xigua366.sample.domain.entity.SchoolDO;
  * @author yangxi
  * @version 1.0
  */
-public interface SchoolDAO extends IService<SchoolDO> {
+@Repository
+public class SchoolDAO extends BaseDAO<SchoolMapper, SchoolDO> {
 
     /**
      * 根据学校名称模糊查询
@@ -22,6 +26,9 @@ public interface SchoolDAO extends IService<SchoolDO> {
      * @param schoolName 查询条件
      * @return
      */
-    IPage<PageSchoolDTO> pageSchool2(long page, long size, String schoolName);
+    public IPage<PageSchoolDTO> pageSchool2(long page, long size, String schoolName) {
+        Page<PageSchoolDTO> pageParam = new Page<>(page, size);
+        return baseMapper.pageSchool2(pageParam, schoolName);
+    }
 
 }

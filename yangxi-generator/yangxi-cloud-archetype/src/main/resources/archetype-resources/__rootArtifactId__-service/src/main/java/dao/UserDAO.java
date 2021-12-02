@@ -1,7 +1,12 @@
 package ${package}.dao;
 
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ${package}.dao.UserDAO;
 import ${package}.domain.entity.UserDO;
+import ${package}.mapper.UserMapper;
+import com.yangxi.cloud.framework.dao.BaseDAO;
+import org.springframework.stereotype.Repository;
 
 /**
  * <P>
@@ -11,13 +16,11 @@ import ${package}.domain.entity.UserDO;
  * @author yangxi
  * @version 1.0
  */
-public interface UserDAO extends IService<UserDO> {
+@Repository
+public class UserDAO extends BaseDAO<UserMapper, UserDO> {
 
-    /**
-     * 根据手机号查询用户信息
-     * @param phone
-     * @return
-     */
-    UserDO findUserByPhone(String phone);
-
+    public UserDO findUserByPhone(String phone) {
+        QueryWrapper<UserDO> queryWrapper = new QueryWrapper<UserDO>().eq("phone", phone);
+        return baseMapper.selectOne(queryWrapper);
+    }
 }

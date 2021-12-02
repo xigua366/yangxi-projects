@@ -1,6 +1,5 @@
 package cn.xigua366.sample.service.impl;
 
-import cn.xigua366.sample.dao.UserDAO;
 import cn.xigua366.sample.domain.LoginUser;
 import cn.xigua366.sample.exception.BizErrorCodeEnum;
 import cn.xigua366.sample.utils.JWTUtil;

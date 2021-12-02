@@ -1,16 +1,19 @@
 package cn.xigua366.sample.dao;
 
 import cn.xigua366.sample.domain.entity.SysOrgUserRefDO;
-import com.baomidou.mybatisplus.extension.service.IService;
+import cn.xigua366.sample.mapper.SysOrgUserRefMapper;
+import com.yangxi.cloud.framework.dao.BaseDAO;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
- * 组织与用户的关联关系表 服务类
+ * 组织与用户的关联关系表 服务实现类
  * </p>
  *
  * @author xi.yang
  * @since 2021-06-21
  */
-public interface SysOrgUserRefDAO extends IService<SysOrgUserRefDO> {
+@Repository
+public class SysOrgUserRefDAO extends BaseDAO<SysOrgUserRefMapper, SysOrgUserRefDO> {
 
 }

@@ -71,6 +71,7 @@ public class GlobalResponseBodyAdvice implements ResponseBodyAdvice<Object> {
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
 
+        // 当Controller直接返回String时，这里的selectedContentType默认就变成了text/plain，不知为何  FIXME
         if(!selectedContentType.equalsTypeAndSubtype(MediaType.APPLICATION_JSON)) {
             return body;
         }

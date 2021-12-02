@@ -1,9 +1,15 @@
 package ${package}.dao;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ${package}.dao.StudentDAO;
+import ${package}.domain.dto.PageSchoolDTO;
 import ${package}.domain.dto.PageStudentDTO;
 import ${package}.domain.entity.StudentDO;
+import ${package}.mapper.StudentMapper;
+import com.yangxi.cloud.framework.dao.BaseDAO;
+import org.springframework.stereotype.Repository;
 
 /**
  * <P>
@@ -13,7 +19,8 @@ import ${package}.domain.entity.StudentDO;
  * @author yangxi
  * @version 1.0
  */
-public interface StudentDAO extends IService<StudentDO> {
+@Repository
+public class StudentDAO extends BaseDAO<StudentMapper, StudentDO> {
 
     /**
      * 分页查询学生信息
@@ -22,5 +29,8 @@ public interface StudentDAO extends IService<StudentDO> {
      * @param name 学生姓名
      * @return
      */
-    IPage<PageStudentDTO> pageStudent(long page, long size, String name);
+    public IPage<PageStudentDTO> pageStudent(long page, long size, String name) {
+        Page<PageSchoolDTO> pageParam = new Page<>(page, size);
+        return baseMapper.pageStudent(pageParam, name);
+    }
 }

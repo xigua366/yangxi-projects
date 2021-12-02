@@ -25,7 +25,7 @@ public class MyBatisPlusGenerator {
         // 作者
         config.setAuthor("xi.yang")
                 // 生成路径，最好使用绝对路径，window路径是不一样的
-                .setOutputDir("~/temp/yangxi-cloud-sample-generator/demo/src/main/java")
+                .setOutputDir("/Users/yangxi/temp/yangxi-cloud-sample-generator/demo/src/main/java")
                 // 文件覆盖
                 .setFileOverride(true)
                 // 主键策略
@@ -47,7 +47,7 @@ public class MyBatisPlusGenerator {
         // 设置数据库类型
         dsConfig.setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUrl("jdbc:mysql://127.0.0.1:3306/yangxi_boot_sample_admin?useUnicode=true&characterEncoding=utf-8&useSSL=false")
+                .setUrl("jdbc:mysql://127.0.0.1:3306/dxp_sample_task_stock?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai")
                 .setUsername("root")
                 .setPassword("root");
         //3. 策略配置globalConfiguration中
@@ -63,12 +63,11 @@ public class MyBatisPlusGenerator {
                 .setRestControllerStyle(false)
                 // 生成的表, 支持多表一起生成，以数组形式填写
                 // 两个方式，直接写，或者使用命令行输入
-                .setInclude("sys_acl", "sys_acl_module", "sys_org", "sys_org_role_ref", "sys_org_user_ref",
-                        "sys_role", "sys_role_acl_ref", "sys_user", "sys_user_acl_ref", "sys_user_role_ref"); // 可以写多个，用逗号隔开
+                .setInclude("stock_info", "stock_task"); // 可以写多个，用逗号隔开
                 //.setInclude(scanner("表名，多个英文逗号分割").split(","));
         //4. 包名策略配置
         PackageConfig pkConfig = new PackageConfig();
-        pkConfig.setParent("com.yangxi.boot.sample")
+        pkConfig.setParent("com.deepexi.dxp.task.stock")
                 .setMapper("mapper")
                 .setService("dao")
                 .setServiceImpl("dao.impl")
