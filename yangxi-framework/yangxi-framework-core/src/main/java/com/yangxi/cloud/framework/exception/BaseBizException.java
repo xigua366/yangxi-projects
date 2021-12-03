@@ -10,31 +10,31 @@ import java.text.MessageFormat;
  * @author yangxi
  * @version 1.0
  */
-public class BizException extends RuntimeException {
+public class BaseBizException extends RuntimeException {
 
     private int code;
 
     private String msg;
 
-    public BizException(int code, String msg) {
+    public BaseBizException(int code, String msg) {
         super(msg);
         this.code = code;
         this.msg = msg;
     }
 
-    public BizException(BaseErrorCodeEnum baseErrorCodeEnum) {
+    public BaseBizException(BaseErrorCodeEnum baseErrorCodeEnum) {
         super(baseErrorCodeEnum.getMsg());
         this.code = baseErrorCodeEnum.getCode();
         this.msg = baseErrorCodeEnum.getMsg();
     }
 
-    public BizException(int code, String msg, Object... arguments) {
+    public BaseBizException(int code, String msg, Object... arguments) {
         super(MessageFormat.format(msg, arguments));
         this.code = code;
         this.msg = MessageFormat.format(msg, arguments);
     }
 
-    public BizException(BaseErrorCodeEnum baseErrorCodeEnum, Object... arguments) {
+    public BaseBizException(BaseErrorCodeEnum baseErrorCodeEnum, Object... arguments) {
         super(MessageFormat.format(baseErrorCodeEnum.getMsg(), arguments));
         this.code = baseErrorCodeEnum.getCode();
         this.msg = MessageFormat.format(baseErrorCodeEnum.getMsg(), arguments);

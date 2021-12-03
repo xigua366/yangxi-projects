@@ -1,7 +1,7 @@
 package cn.xigua366.sample.exception;
 
 import com.yangxi.cloud.framework.core.JsonData;
-import com.yangxi.cloud.framework.exception.BizException;
+import com.yangxi.cloud.framework.exception.BaseBizException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
@@ -24,8 +24,8 @@ public class MyBizExceptionHandler {
      * @param e
      * @return
      */
-    @ExceptionHandler(value = BizException.class)
-    public JsonData<Object> handle(BizException e) {
+    @ExceptionHandler(value = BaseBizException.class)
+    public JsonData<Object> handle(BaseBizException e) {
         log.error("[ 业务异常 ]", e);
         return JsonData.buildError(e.getCode(), e.getMsg());
     }

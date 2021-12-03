@@ -37,7 +37,7 @@ public class IDUtil {
     private static final int[][] RANGE_ARRAY =
             {RANGE_4, RANGE_5, RANGE_6, RANGE_7, RANGE_8, RANGE_9, RANGE_10, RANGE_11, RANGE_12};
 
-    public static long genNo(long id, int length) {
+    public static long genId(long id, int length) {
         long maxValue = (long) Math.pow(10, length) - 1;
         int superScript = (int) (Math.log(maxValue) / Math.log(2));
 
