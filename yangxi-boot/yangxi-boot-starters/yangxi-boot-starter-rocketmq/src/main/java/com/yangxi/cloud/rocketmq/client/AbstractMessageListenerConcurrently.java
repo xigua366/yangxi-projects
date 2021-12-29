@@ -29,7 +29,7 @@ public abstract class AbstractMessageListenerConcurrently implements MessageList
             if(map != null) {
                 tenantId = map.get(WebConstant.TENANT_ID);
             }
-            if(tenantId == null || "".equals(tenantId)) {
+            if(tenantId != null && !"".equals(tenantId)) {
                 TenantContext.setTenantId(tenantId);
             }
             return onMessage(msgs, context);
