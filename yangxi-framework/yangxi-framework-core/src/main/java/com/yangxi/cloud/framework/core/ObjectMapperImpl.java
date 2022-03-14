@@ -43,6 +43,8 @@ public class ObjectMapperImpl extends ObjectMapper {
         // setTimeZone(TimeZone.getTimeZone(ZoneId.systemDefault().getId()));
         setTimeZone(TimeZone.getTimeZone(CoreConstant.DEFAULT_TIME_ZONE));
 
+        // ZoneOffset.of("+8") 东八区也可以这样表示 FIXME
+
         // 设置日期格式化
         setDateFormat(new SimpleDateFormat(CoreConstant.DATE_TIME_FORMAT_PATTERN));
 
